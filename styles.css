@@ -1,0 +1,473 @@
+
+#buttons{
+  display: flex;
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  background-color: black;
+  left: -35px;
+  top: 411px;
+}
+#b1{
+  flex-direction: column;
+  width: 190px;
+  height: 190px;
+  background-color: black;
+  z-index: 5;
+}
+
+/* #b2{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: 111px;
+  right: -270px;
+  background-color: black;
+  z-index: 5;
+} */
+
+#b2{
+
+  width: 190px;
+  height: 190px;
+  background-color: black;
+  z-index: 5;
+}
+#b3{
+
+  width: 190px;
+  height: 190px;
+
+  background-color: black;
+  z-index: 5;
+}
+#b4{
+ 
+  width: 190px;
+  height: 190px;
+
+  background-color: black;
+  z-index: 5;
+}
+#b5{
+
+  width: 190px;
+  height: 190px;
+
+  background-color: black;
+  z-index: 5;
+}
+#b6{
+
+  width: 190px;
+  height: 190px;
+
+  background-color: black;
+  z-index: 5;
+}
+#b7{
+
+  width: 190px;
+  height: 190px;
+
+  
+  background-color: black;
+  z-index: 5;
+}
+#b8{
+
+  width: 190px;
+  height: 190px;
+
+  background-color: black;
+  z-index: 5;
+}
+#b9{
+
+  width: 190px;
+  height: 190px;
+
+  background-color: black;
+  z-index: 5;
+}
+
+
+
+#xButton
+{
+  position: absolute;
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
+  background-color: black;
+  top: 100px;
+  height: 70px;
+  width: 70px;
+  left: 600px;
+  top: 850px;
+  text-align: center;
+  color: red;
+  z-index: 10;
+}
+#oButton
+{
+  position: absolute;
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
+  background-color: black;
+  top: 100px;
+  height: 70px;
+  width: 70px;
+  left: 680px;
+  top: 850px;
+  text-align: center;
+  color: red;
+  z-index: 10;
+}
+
+#constT
+{
+  font-family: "Libre Barcode 39 Text";
+  position: relative;
+  background-color: black;
+  margin: auto;
+  width: 610px;
+  top: 160px;
+  text-align: center;
+  color: red;
+}
+#board
+{
+  position:relative;
+  top: 160px;
+  margin: auto;
+  height: 610px;
+  width: 610px;
+  background-color: #555;
+}
+#box1
+{
+  position:relative;
+  top: -240px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  background-color: black;
+  
+}
+#box2
+{
+  position:relative;
+  top: -430px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  left: 200px;
+  background-color: black;
+}
+#box3
+{
+  position:relative;
+  top: -620px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  right: 200px;
+  background-color: black;
+}
+#box4
+{
+  position:relative;
+  top: -610px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  background-color: black;
+}
+#box5
+{
+  position:relative;
+  top: -800px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  left: 200px;
+  background-color: black;
+}
+#box6
+{
+  position:relative;
+  top: -990px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  right: 200px;
+  background-color: black;
+}
+#box7
+{
+  position:relative;
+  top: -1580px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  background-color: black;
+}
+#box8
+{
+  position:relative;
+  top: -1770px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  left: 200px;
+  background-color: black;
+}
+#box9
+{
+  position:relative;
+  top: -1960px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  left: 200px;
+  background-color: black;
+}
+
+#wrapper
+{
+  position: absolute;
+  top: 150px;
+  left: -200px;
+  z-index: 10;
+}
+h3
+{
+  position: absolute;
+  
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
+  height: 400px;
+  width: 400px;
+  left: 476px;
+  top: 700px;
+  text-align: center;
+  color: red;
+  z-index: 3;
+  
+}
+.bg
+{
+  position: absolute;
+  height: 180px;
+  width: 400px;
+  left: 476px;
+  top: 695px;
+  background-color: rgb(18, 113, 197);
+  z-index: 1;
+}
+.bg2
+{
+  position: absolute;
+  height: 160px;
+  width: 350px;
+  left: 500px;
+  top: 705px;
+  background-color: black;
+  z-index: 2;
+}
+
+
+
+.boxList
+{
+  position: relative;
+  margin: auto;
+  bottom: 1710px;
+}
+
+#boxS1
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -240px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  background-color: red;
+}
+#boxS2
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -430px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  left: 200px;
+  background-color: red;
+}
+#boxS3
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -620px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  right: 200px;
+  background-color: red;
+}
+#boxS4
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -610px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  background-color: red;
+}
+#boxS5
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -800px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  left: 200px;
+  background-color: red;
+}
+#boxS6
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -990px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  right: 200px;
+  background-color: red;
+}
+#boxS7
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -1580px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  background-color: red;
+}
+#boxS8
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -1770px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  left: 200px;
+  background-color: red;
+}
+#boxS9
+{
+  position:relative;
+  text-align:center;
+  font-size: 180px;
+  top: -1960px;
+  margin: auto;
+  height: 190px;
+  width: 190px;
+  right: 200px;
+  background-color: red;
+  z-index: 3;
+}
+
+
+
+
+
+
+
+/* 
+}
+#b3{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: 111px;
+  right: 130px;
+  background-color: black;
+  z-index: 5;
+}
+#b4{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: 311px;
+  right: -70px;
+  background-color: black;
+  z-index: 5;
+}
+#b5{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: 311px;
+  right: -270px;
+  background-color: black;
+  z-index: 5;
+}
+#b6{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: 311px;
+  right: 130px;
+  background-color: black;
+  z-index: 5;
+}
+#b7{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: -89px;
+  
+  background-color: black;
+  z-index: 5;
+}
+#b8{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: -89px;
+  right: -270px;
+  background-color: black;
+  z-index: 5;
+}
+#b9{
+  position: absolute;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+  top: -89px;
+  right: 130px;
+  background-color: black;
+  z-index: 5;
+} */
