@@ -123,7 +123,10 @@ for(let rows = 0; rows < championNums.length; rows++){
 
 const x = document.getElementById('xButton');
 const o = document.getElementById('oButton');
-const xo = x || o;
+
+const xo =  async function(){    //starts as undefined 
+return x || o;                  //keep eye on this function, may cause issues later on
+};
 
 
 const boxBtns = document.querySelectorAll('.btns');
@@ -134,17 +137,17 @@ const box = document.querySelectorAll(['b']);
 
 const game = new Game(box, xo);
 
-x.addEventListener("click", xbtn=>{
+x.addEventListener("click", xbtn=>{       
   game.start(x);
   // console.log(game.xoChoice);
 
-  return console.log(xo[0].value);
+  return x
   
 })
 o.addEventListener("click", xbtn=>{
   game.start(o);
   // console.log(game.xoChoice);
-  return xo[1].value;
+  return o
 })
 
   boxBtns.forEach(btn =>{
