@@ -115,7 +115,7 @@ background-color: whitesmoke;
 
 
 
-#constT
+.constT
 {
   font-family: "Libre Barcode 39 Text";
   position: relative;
@@ -284,6 +284,9 @@ background-color: whitesmoke;
 #xButton:hover~.xoQuestion{
   color: whitesmoke;
 }
+#xButton:hover~.bg2{
+  color: whitesmoke;
+}
 #xButton:hover~.bg{
   background-color: whitesmoke;
 }
@@ -309,7 +312,9 @@ background-color: whitesmoke;
 #oButton:hover~.xoQuestion{
   color: whitesmoke;
 }
+#oButton:hover~.bg2{
+  color: whitesmoke;
+}
 #oButton:hover~.bg{
   background-color: whitesmoke;
 }
-

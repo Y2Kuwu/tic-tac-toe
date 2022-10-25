@@ -4,7 +4,7 @@ let win = true;
 let draw = true;
 let comp;
 let human;
-let playerUp = comp || human;
+
 
 class Game{
     constructor(box, xo){
@@ -12,30 +12,33 @@ class Game{
    //which player
    // this.stats = stats; //game status
     this.xo = xo;
-    this.start(xo);
-  }
-  start(chooseXO){
+    if (xo !== undefined){
+    this.start(xo.value);
+    }
+    }
+  start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
     this.boxSelect = ''; //what box is selected //box
     //this.playerTurn = human; //is the player x or o // human or computer //player
  //   this.stat = gameIsStarted, !win , !draw; //game is started equals true  //stats
-    this.xoChoice = chooseXO; //xo choose 
+    win == !win;
+    draw == !draw;
+    this.chooseXO = chooseXO; //xo choose 
     console.log(chooseXO.value)
-  }
+    return(chooseXO.value);
+    }
+  
   selected(selection){
       if (this.boxSelect !== '' && !win && !draw)
       return
-      
-      
-    
     this.selection = selection; 
     this.boxSelect = ''
-    this.tileSelect(); 
+
     }
   
   tileSelect(){
     let boxIsSelected;
     let value;
-    
+    let markXO = this.chooseXO;
     switch (this.selection){
     case 'b1':
       boxIsSelected = 'b1', value = 1;
@@ -68,21 +71,27 @@ class Game{
     default:
       return;
   }
-    this.boxSelect = boxIsSelected && value;
+    this.boxSelect = value;
+    console.log(markXO.value)
     console.log(this.boxSelect)
   }
 
 
-    match(value){
+    match(boxSelect, chooseXO){
+      console.log(chooseXO)
 
-    if (this.playerTurn == human){
-      playerOne = [];
-    playerOne.push(value)
+    if (chooseXO == 'x'){
+      let playerOne = [];
+    playerOne.push(boxSelect)
+      console.log(playerOne[0])
+      console.log("player = human");
     }
 
-    if (this.playerTurn == comp){
-      playerTwo = [];
-    playerTwo.push(value)
+    else if (chooseXO == 'o'){
+      let playerTwo = [];
+    playerTwo.push(boxSelect)
+    console.log(playerTwo[0])
+    console.log("player = comp");
     }
       const championNums = 
   [
@@ -123,9 +132,12 @@ for(let rows = 0; rows < championNums.length; rows++){
 
 const x = document.getElementById('xButton');
 const o = document.getElementById('oButton');
+//const xoXO = x || o;
 
-const xo =  async function(){    //starts as undefined 
-return x || o;                  //keep eye on this function, may cause issues later on
+async function a(val){    //starts as undefined 
+val = x.addEventListener('click');
+val = o.addEventListener('click');
+return val;                  //keep eye on this function, may cause issues later on
 };
 //make boxBtns lock, still receiving values before   disable?
 
@@ -135,7 +147,7 @@ const box = document.querySelectorAll(['b']);
 // const xoRequest2 = document.querySelector('.bg2');
 const wrap = document.getElementById('wrapper');
 
-const game = new Game(box, xo);
+const game = new Game(box);
 
 x.addEventListener("click", xbtn=>{  
   wrap.style.display = 'none';
