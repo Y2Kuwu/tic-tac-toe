@@ -19,6 +19,7 @@ class Game{
     //this.playerTurn = human; //is the player x or o // human or computer //player
  //   this.stat = gameIsStarted, !win , !draw; //game is started equals true  //stats
     this.xoChoice = chooseXO; //xo choose 
+    console.log(chooseXO.value)
   }
   selected(selection){
       if (this.boxSelect !== '' && !win && !draw)
@@ -127,16 +128,23 @@ const xo = x || o;
 
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);
-  
+
+
+
+
 const game = new Game(box, xo);
 
 x.addEventListener("click", xbtn=>{
   game.start(x);
-  console.log(game.xoChoice);
+  // console.log(game.xoChoice);
+
+  return console.log(xo[0].value);
+  
 })
 o.addEventListener("click", xbtn=>{
   game.start(o);
-  console.log(game.xoChoice);
+  // console.log(game.xoChoice);
+  return xo[1].value;
 })
 
   boxBtns.forEach(btn =>{
@@ -145,6 +153,10 @@ o.addEventListener("click", xbtn=>{
         // console.log(btn);
         game.selected(btn.id);
         game.tileSelect();
-        game.match(btn.id.value)  // recieving above define player first and change inner html of boxes
+        game.match(btn.id)  // recieving above define player first and change inner html of boxes
     })
   })
+  
+  // async function clickXO (){
+  //   if (clicked){
+
