@@ -110,36 +110,7 @@ background-color: whitesmoke;
 
 
 
-#xButton
-{
-  position: absolute;
-  font-family: "Libre Barcode 39 Text";
-  font-size: 60px;
-  background-color: black;
-  top: 100px;
-  height: 70px;
-  width: 70px;
-  left: 600px;
-  top: 850px;
-  text-align: center;
-  color: red;
-  z-index: 10;
-}
-#oButton
-{
-  position: absolute;
-  font-family: "Libre Barcode 39 Text";
-  font-size: 60px;
-  background-color: black;
-  top: 100px;
-  height: 70px;
-  width: 70px;
-  left: 680px;
-  top: 850px;
-  text-align: center;
-  color: red;
-  z-index: 10;
-}
+
 
 
 
@@ -242,24 +213,27 @@ background-color: whitesmoke;
 
 #wrapper
 {
-  position: absolute;
-  top: 150px;
-  left: -200px;
-  z-index: 10;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 1100px;
+  z-index: 8;
+  margin-top: -100px;
+
 }
-h3
+.xoQuestion
 {
   position: absolute;
-  
   font-family: "Libre Barcode 39 Text";
   font-size: 60px;
   height: 400px;
   width: 400px;
-  left: 476px;
-  top: 700px;
+  margin-top: 300px;
   text-align: center;
   color: red;
-  z-index: 3;
+  z-index: 7;
   
 }
 .bg
@@ -267,21 +241,75 @@ h3
   position: absolute;
   height: 180px;
   width: 400px;
-  left: 476px;
-  top: 695px;
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: red;
   background-color: rgb(18, 113, 197);
-  z-index: 1;
+
+  z-index: 6;
 }
 .bg2
 {
   position: absolute;
   height: 160px;
   width: 350px;
-  left: 500px;
-  top: 705px;
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: whitesmoke;
+  z-index: 6;
+
   background-color: black;
-  z-index: 2;
+  z-index: 6;
 }
-
-
+#xButton
+{
+  position: absolute;
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
+  background-color: black;
+  height: 70px;
+  width: 70px;
+  margin: auto;
+  justify-content: center;
+  color: red;
+  z-index: 9;
+  margin-bottom: -90px;
+  margin-right: 120px;
+}
+#xButton:hover{
+  outline-width: 4px;
+  outline-style: solid;
+  color: whitesmoke;
+}
+#xButton:hover~.xoQuestion{
+  color: whitesmoke;
+}
+#xButton:hover~.bg{
+  background-color: whitesmoke;
+}
+#oButton
+{
+  position: absolute;
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
+  background-color: black;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  color: red;
+  z-index: 9;
+  margin-bottom: -90px;
+  margin-left: 120px;
+}
+#oButton:hover{
+  outline-width: 4px;
+  outline-style: solid;
+  color: whitesmoke;
+}
+#oButton:hover~.xoQuestion{
+  color: whitesmoke;
+}
+#oButton:hover~.bg{
+  background-color: whitesmoke;
+}
 

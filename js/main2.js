@@ -127,7 +127,7 @@ const o = document.getElementById('oButton');
 const xo =  async function(){    //starts as undefined 
 return x || o;                  //keep eye on this function, may cause issues later on
 };
-
+//make boxBtns lock, still receiving values before   disable?
 
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);
