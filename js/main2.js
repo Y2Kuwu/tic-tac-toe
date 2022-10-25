@@ -131,20 +131,23 @@ return x || o;                  //keep eye on this function, may cause issues la
 
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);
-
-
-
+// const xoRequest1 = document.querySelector('.bg');
+// const xoRequest2 = document.querySelector('.bg2');
+const wrap = document.getElementById('wrapper');
 
 const game = new Game(box, xo);
 
-x.addEventListener("click", xbtn=>{       
+x.addEventListener("click", xbtn=>{  
+  wrap.style.display = 'none';
+  // xoRequest1.style.display = 'none';
+  // xoRequest2.style.display = 'none';
   game.start(x);
   // console.log(game.xoChoice);
 
   return x
-  
 })
 o.addEventListener("click", xbtn=>{
+  wrap.style.display = 'none';
   game.start(o);
   // console.log(game.xoChoice);
   return o
