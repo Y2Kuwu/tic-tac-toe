@@ -72,16 +72,16 @@ class Game{
   }
 
 
-    match(boxIsSelected){
+    match(value){
 
     if (this.playerTurn == human){
       playerOne = [];
-    playerOne.push(boxIsSelected.value)
+    playerOne.push(value)
     }
 
     if (this.playerTurn == comp){
       playerTwo = [];
-    playerTwo.push(boxIsSelected.value)
+    playerTwo.push(value)
     }
       const championNums = 
   [
@@ -119,9 +119,10 @@ for(let rows = 0; rows < championNums.length; rows++){
     }
   }
 
+
 const x = document.getElementById('xButton');
 const o = document.getElementById('oButton');
- const xo = x || o;
+const xo = x || o;
 
 
 const boxBtns = document.querySelectorAll('.btns');
@@ -143,6 +144,7 @@ o.addEventListener("click", xbtn=>{
       
         // console.log(btn);
         game.selected(btn.id);
-        game.tileSelect()
+        game.tileSelect();
+        game.match(btn.id.value)  // recieving above define player first and change inner html of boxes
     })
   })
