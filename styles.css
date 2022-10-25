@@ -11,6 +11,7 @@
   outline-style: solid;
   outline-width: 4px;
   outline-color: black;
+  position: relative;
 }
 
 #b1{
@@ -19,6 +20,7 @@
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b1:hover{
 background-color: whitesmoke;
@@ -29,6 +31,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b2:hover{
   background-color: whitesmoke;
@@ -38,6 +41,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b3:hover{
   background-color: whitesmoke;
@@ -47,6 +51,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b4:hover{
   background-color: whitesmoke;
@@ -56,6 +61,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b5:hover{
   background-color: whitesmoke;
@@ -65,6 +71,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b6:hover{
   background-color: whitesmoke;
@@ -75,6 +82,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b7:hover{
   background-color: whitesmoke;
@@ -84,6 +92,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b8:hover{
   background-color: whitesmoke;
@@ -93,6 +102,7 @@ background-color: whitesmoke;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
 #b9:hover{
   background-color: whitesmoke;
@@ -163,7 +173,7 @@ background-color: whitesmoke;
   margin-top: -600px;
   width: 600px;
   height: 600px;
-
+  position: relative;
 }
 
 #box1
