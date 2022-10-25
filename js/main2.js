@@ -12,8 +12,8 @@ class Game{
    //which player
    // this.stats = stats; //game status
     this.xo = xo;
-    if (xo !== undefined){
-    this.start(xo.value);
+    if (xo !== undefined){  //make sure to skip this if it's not the first round maybe a global bool
+    this.start(xo.value);  
     }
     }
   start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
@@ -38,10 +38,11 @@ class Game{
   tileSelect(){
     let boxIsSelected;
     let value;
-    let markXO = this.chooseXO;
+    let markXO = this.chooseXO;  //variable for xo 
     switch (this.selection){
     case 'b1':
       boxIsSelected = 'b1', value = 1;
+      boxIsSelected.innerText = markXO; //changing inner text to display x or o
       break;
     case 'b2':
       boxIsSelected = 'b2', value = 2;
@@ -170,7 +171,9 @@ o.addEventListener("click", xbtn=>{
       
         // console.log(btn);
         game.selected(btn.id);
+        btn.style.display = 'none';
         game.tileSelect();
+
         game.match(btn.id)  // recieving above define player first and change inner html of boxes
     })
   })
