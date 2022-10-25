@@ -8,6 +8,9 @@
   left: -35px;
   top: 411px;
 }
+#buttons:hover{
+  background-color: beige;
+}
 #b1{
   flex-direction: column;
   width: 190px;
@@ -15,7 +18,9 @@
   background-color: black;
   z-index: 5;
 }
-
+#b1:hover{
+background-color: whitesmoke;
+}
 /* #b2{
   position: absolute;
   margin: auto;
@@ -34,63 +39,73 @@
   background-color: black;
   z-index: 5;
 }
+#b2:hover{
+  background-color: whitesmoke;
+  }
 #b3{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
 }
+#b3:hover{
+  background-color: whitesmoke;
+  }
 #b4{
- 
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
 }
+#b4:hover{
+  background-color: whitesmoke;
+  }
 #b5{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
 }
+#b5:hover{
+  background-color: whitesmoke;
+  }
 #b6{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
 }
+#b6:hover{
+  background-color: whitesmoke;
+  }
 #b7{
 
   width: 190px;
   height: 190px;
-
-  
   background-color: black;
   z-index: 5;
 }
+#b7:hover{
+  background-color: whitesmoke;
+  }
 #b8{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
 }
+#b8:hover{
+  background-color: whitesmoke;
+  }
 #b9{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
 }
+#b9:hover{
+  background-color: whitesmoke;
+  }
 
 
 
