@@ -7,8 +7,9 @@ let human;
 
 
 class Game{
-    constructor(box, xo){
+    constructor(box, redBox, xo){
     this.box = box; //what box is selected
+    this.redBox = redBox;
    //which player
    // this.stats = stats; //game status
     this.xo = xo;
@@ -20,29 +21,35 @@ class Game{
     this.boxSelect = ''; //what box is selected //box
     //this.playerTurn = human; //is the player x or o // human or computer //player
  //   this.stat = gameIsStarted, !win , !draw; //game is started equals true  //stats
+    this.redSelect = '';
     win == !win;
     draw == !draw;
     this.chooseXO = chooseXO; //xo choose 
     console.log(chooseXO.value)
-    return(chooseXO.value);
+    // return(chooseXO.value);
     }
   
-  selected(selection){
-      if (this.boxSelect !== '' && !win && !draw)
+  selected(selection, selectionR){
+      if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw)   
       return
     this.selection = selection; 
-    this.boxSelect = ''
-
+    this.selectionR = selectionR;
+    this.boxSelect = '';
+    this.redSelect = '';
+    console.log(selection, selectionR.id)
     }
   
   tileSelect(){
     let boxIsSelected;
     let value;
     let markXO = this.chooseXO;  //variable for xo 
-    switch (this.selection){
-    case 'b1':
+    let redBoxIsSelected;
+    switch (this.selection , this.selectionR.id){
+    case 'b1' , 'box1':   // may need to change
       boxIsSelected = 'b1', value = 1;
-      redBoxes.innerText = markXO; //changing inner text to display x or o
+      redBoxIsSelected = 'box1'
+      // redSelect.innerHTML = markXO; //changing inner text to display x or o
+      console.log('xx')
       break;
     case 'b2':
       boxIsSelected = 'b2', value = 2;
@@ -72,7 +79,9 @@ class Game{
     default:
       return;
   }
+    this.redBoxIsSelected = this.redSelect;
     this.boxSelect = value;
+    console.log(redBoxIsSelected)
     console.log(markXO.value)
     console.log(this.boxSelect)
   }
@@ -146,13 +155,27 @@ return val;                  //keep eye on this function, may cause issues later
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);
 
-const redBoxes = document.getElementsByClassName('.boxList');
+
+// const redBoxes = function(idx){  
+//   // console.log('box' + idx);
+//   let redBoxSelect = ('box' + idx);
+//   const redBox = document.getElementById(redBoxSelect);
+//   console.log(redBox)
+//   game.selected(redBox.id)
+//   return redBox;
+// }
+
+
+// const redBoxes = document.getElementsByClassName('.boxList');
 // 
 // const xoRequest1 = document.querySelector('.bg');
 // const xoRequest2 = document.querySelector('.bg2');
 const wrap = document.getElementById('wrapper');
 
 const game = new Game(box);
+
+
+
 
 x.addEventListener("click", xbtn=>{  
   wrap.style.display = 'none';
@@ -170,24 +193,23 @@ o.addEventListener("click", xbtn=>{
   return o
 })
 
-  const red = function(idx){  
-  // console.log('box' + idx);
-  let redBoxSelect = ('box' + idx);
-  return redBox = document.getElementById(redBoxSelect), console.log(redBox.value);
   
-}
 
+  //return document.getElementById(redBoxSelect), console.log(redBoxSelect);
+  
 
 
   boxBtns.forEach(btn =>{
     btn.addEventListener('click', ()=>{
       
         // console.log(btn);
-        game.selected(btn.id);
+        const redBox = document.getElementById('box' + btn.value)
+        game.selected(btn.id, redBox);
         btn.style.display = 'none';
         game.tileSelect();
         console.log(btn.value)
-        red(btn.value);
+        // redBoxes(btn.value);
+        
         game.match(btn.id)  // recieving above define player first and change inner html of boxes
       })
   })
