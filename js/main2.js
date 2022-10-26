@@ -1,5 +1,5 @@
 // buttonChoices.disabled == true;
-let gameIsStarted = true
+let gameIsStarted;
 let win = true;
 let draw = true;
 let comp;
@@ -12,7 +12,7 @@ class Game{
    //which player
    // this.stats = stats; //game status
     this.xo = xo;
-    if (xo !== undefined){  //make sure to skip this if it's not the first round maybe a global bool
+    if (xo !== undefined && gameIsStarted == true){  //make sure to skip this if it's not the first round maybe a global bool
     this.start(xo.value);  
     }
     }
@@ -42,7 +42,7 @@ class Game{
     switch (this.selection){
     case 'b1':
       boxIsSelected = 'b1', value = 1;
-      boxIsSelected.innerText = markXO; //changing inner text to display x or o
+      redBoxes.innerText = markXO; //changing inner text to display x or o
       break;
     case 'b2':
       boxIsSelected = 'b2', value = 2;
@@ -135,6 +135,7 @@ const x = document.getElementById('xButton');
 const o = document.getElementById('oButton');
 //const xoXO = x || o;
 
+//not running//delete
 async function a(val){    //starts as undefined 
 val = x.addEventListener('click');
 val = o.addEventListener('click');
@@ -144,6 +145,9 @@ return val;                  //keep eye on this function, may cause issues later
 
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);
+
+const redBoxes = document.getElementsByClassName('.boxList');
+// 
 // const xoRequest1 = document.querySelector('.bg');
 // const xoRequest2 = document.querySelector('.bg2');
 const wrap = document.getElementById('wrapper');
@@ -166,6 +170,15 @@ o.addEventListener("click", xbtn=>{
   return o
 })
 
+  const red = function(idx){  
+  // console.log('box' + idx);
+  let redBoxSelect = ('box' + idx);
+  return redBox = document.getElementById(redBoxSelect), console.log(redBox.value);
+  
+}
+
+
+
   boxBtns.forEach(btn =>{
     btn.addEventListener('click', ()=>{
       
@@ -173,11 +186,13 @@ o.addEventListener("click", xbtn=>{
         game.selected(btn.id);
         btn.style.display = 'none';
         game.tileSelect();
-
+        console.log(btn.value)
+        red(btn.value);
         game.match(btn.id)  // recieving above define player first and change inner html of boxes
-    })
+      })
   })
-  
+
+    
   // async function clickXO (){
   //   if (clicked){
 

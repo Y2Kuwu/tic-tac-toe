@@ -153,6 +153,9 @@ background-color: whitesmoke;
   height: 190px;
   background-color: red;
   z-index: 4;
+  font-size: large;
+  text-align: center;
+  
 }
 #box2
 {
