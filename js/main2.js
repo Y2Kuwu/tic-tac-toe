@@ -1,7 +1,7 @@
 // buttonChoices.disabled == true;
 let round = 0;
 let win;
-let draw = true;
+let draw;
 let comp;
 let human;
 
@@ -13,36 +13,50 @@ class Game{
     this.xo = xo;
    //which player
    // this.stats = stats; //game status
-   
+      let notXO
     for (round = 0; round < 8; round++){
-    
     if (xo !== undefined && round == 0){  //make sure to skip this if it's not the first round maybe a global bool
     round++
-    this.start(xo.value);  
    
+    this.start(xo.value , notXO);  
     }
-    if (round > 0 && xo !== undefined){
+    else if (xo !== undefined && round > 0){
       round++;
       this.nextRound()
     }
     }
     }
-  start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
+  
+  start(chooseXO , noXO){  //run once take similar code for each turn OR x o every other in array?
     this.boxSelect = ''; //what box is selected //box
     //this.playerTurn = human; //is the player x or o // human or computer //player
  //   this.stat = gameIsStarted, !win , !draw; //game is started equals true  //stats
     console.log('start')
+    // if (chooseXO = 'X')
+    // {
+    // return this.noXO = 'O'
+    
+    // }
+    // if (chooseXO = 'O')
+    // {
+    // return this.noXO.value = 'X'
+  
+    // }
+   
     this.redSelect = '';
     win == false;
     draw == false;
     this.chooseXO = chooseXO; //xo choose 
+    // this.noXO = noXO;
+    // console.log(noXO.value)
     console.log(chooseXO.value)
     // return(chooseXO.value);
     }
   
-    nextRound(){
+    nextRound(){ 
       console.log('fart')
       this.redSelect = '';
+      this.boxSelect = '';
       win == false;
       draw == false;
     }
@@ -120,7 +134,7 @@ class Game{
       let turnValue = this.chooseXO.value;
       let playerOne = [];
       let playerTwo = [];
-      // console.log(turnValue, boxValue)
+      console.log(turnValue, boxValue)
 
     if (turnValue == 'x'){
     playerOne.push(boxValue)
@@ -193,9 +207,6 @@ const wrap = document.getElementById('wrapper');
 
 const game = new Game(box);
 
-
-
-
 x.addEventListener("click", xbtn=>{  
   wrap.style.display = 'none';
  
@@ -230,3 +241,35 @@ o.addEventListener("click", xbtn=>{
   // async function clickXO (){
   //   if (clicked){
 
+
+
+
+
+
+
+
+  // function humanVComp(digi){
+// return digi;
+// }
+// function terminatorChoice(termChoice, sel) //makeMark)   //add function to listeners
+// {
+    
+//     for(let matchChoice = 0; matchChoice <= termChoice.length; matchChoice++)
+//     {    
+//     var randChoice = Math.floor(Math.random()*termChoice.length);
+
+//     const choice = termChoice[randChoice];
+   
+//     const mark = sel[randChoice];
+//     if (termChoice[randChoice].style.display === "none") {
+//         termChoice[randChoice].display = "block";
+//       } else {
+//         termChoice[randChoice].style.display = "none";
+//         sel[randChoice].innerHTML = humanVComp(digiChoice);
+//         machine.push(mark);
+       
+//         checkScore(machine, human);
+//    return choice, mark; //, mark;
+//       }
+//     }
+// }
