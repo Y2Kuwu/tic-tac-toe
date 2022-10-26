@@ -87,19 +87,22 @@ class Game{
       return;
   }
     this.redBoxIsSelected;
-    this.boxSelect = value;
+    this.boxIsSelected = value;
     console.log(redBoxIsSelected)
     console.log(markXO.value)
-    console.log(this.boxSelect)
+    console.log(value)
   }
 
 
-    match(boxSelect, chooseXO){
-      console.log(chooseXO)
+    match(boxIsSelected, chooseXO){
+      //renamin 
+      let boxValue = this.boxIsSelected;
+      let turnValue = this.chooseXO.value;
 
+      console.log(turnValue, boxValue)
     if (chooseXO == 'x'){
       let playerOne = [];
-    playerOne.push(boxSelect)
+    playerOne.push(value)
       console.log(playerOne[0])
       console.log("player = human");
     }
