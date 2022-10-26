@@ -47,7 +47,7 @@ class Game{
     switch (this.selection , this.selectionR.id){
     case 'b1' , 'box1':   // may need to change
       boxIsSelected = 'b1', value = 1;
-      redBoxIsSelected = 'box1'
+      this.selectionR.innerHTML = markXO.value
       // redSelect.innerHTML = markXO; //changing inner text to display x or o
       console.log('xx')
       break;
@@ -79,7 +79,7 @@ class Game{
     default:
       return;
   }
-    this.redBoxIsSelected = this.redSelect;
+    this.redBoxIsSelected;
     this.boxSelect = value;
     console.log(redBoxIsSelected)
     console.log(markXO.value)
