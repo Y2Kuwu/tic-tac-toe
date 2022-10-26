@@ -1,6 +1,6 @@
 // buttonChoices.disabled == true;
-let gameIsStarted;
-let win = true;
+let round = 0;
+let win;
 let draw = true;
 let comp;
 let human;
@@ -10,26 +10,46 @@ class Game{
     constructor(box, redBox, xo){
     this.box = box; //what box is selected
     this.redBox = redBox;
+    this.xo = xo;
    //which player
    // this.stats = stats; //game status
-    this.xo = xo;
-    if (xo !== undefined && gameIsStarted == true){  //make sure to skip this if it's not the first round maybe a global bool
+   
+    for (round = 0; round < 8; round++){
+    
+    if (xo !== undefined && round == 0){  //make sure to skip this if it's not the first round maybe a global bool
+    round++
     this.start(xo.value);  
+   
+    }
+    if (round > 0 && xo !== undefined){
+      round++;
+      this.nextRound()
+    }
     }
     }
   start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
     this.boxSelect = ''; //what box is selected //box
     //this.playerTurn = human; //is the player x or o // human or computer //player
  //   this.stat = gameIsStarted, !win , !draw; //game is started equals true  //stats
+    console.log('start')
     this.redSelect = '';
-    win == !win;
-    draw == !draw;
+    win == false;
+    draw == false;
     this.chooseXO = chooseXO; //xo choose 
     console.log(chooseXO.value)
     // return(chooseXO.value);
     }
   
+    nextRound(){
+      console.log('fart')
+      this.redSelect = '';
+      win == false;
+      draw == false;
+    }
+
+
   selected(selection, selectionR){
+    console.log('not start')
       if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw)   
       return
     this.selection = selection; 
@@ -94,22 +114,23 @@ class Game{
   }
 
 
-    match(boxIsSelected, chooseXO){
+    match(){
       //renamin 
       let boxValue = this.boxIsSelected;
       let turnValue = this.chooseXO.value;
-
-      console.log(turnValue, boxValue)
-    if (chooseXO == 'x'){
       let playerOne = [];
-    playerOne.push(value)
+      let playerTwo = [];
+      // console.log(turnValue, boxValue)
+
+    if (turnValue == 'x'){
+    playerOne.push(boxValue)
       console.log(playerOne[0])
       console.log("player = human");
     }
 
-    else if (chooseXO == 'o'){
-      let playerTwo = [];
-    playerTwo.push(boxSelect)
+    else if (turnValue == 'o'){
+      
+    playerTwo.push(boxValue)
     console.log(playerTwo[0])
     console.log("player = comp");
     }
@@ -134,8 +155,9 @@ for(let rows = 0; rows < championNums.length; rows++){
         win == win;
         draw == !draw;
         gameIsStarted == !gameIsStarted;
+        alert('Player wins!');
       }
-     alert('Player wins!');
+    
       if(championNums[rows][row] = playerTwo[validTwo]){
         win == win;
         draw == !draw;
@@ -165,22 +187,9 @@ return val;                  //keep eye on this function, may cause issues later
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);
 
-
-// const redBoxes = function(idx){  
-//   // console.log('box' + idx);
-//   let redBoxSelect = ('box' + idx);
-//   const redBox = document.getElementById(redBoxSelect);
-//   console.log(redBox)
-//   game.selected(redBox.id)
-//   return redBox;
-// }
-
-
-// const redBoxes = document.getElementsByClassName('.boxList');
-// 
-// const xoRequest1 = document.querySelector('.bg');
-// const xoRequest2 = document.querySelector('.bg2');
 const wrap = document.getElementById('wrapper');
+
+
 
 const game = new Game(box);
 
@@ -189,11 +198,9 @@ const game = new Game(box);
 
 x.addEventListener("click", xbtn=>{  
   wrap.style.display = 'none';
-  // xoRequest1.style.display = 'none';
-  // xoRequest2.style.display = 'none';
+ 
   game.start(x);
   // console.log(game.xoChoice);
-
   return x
 })
 o.addEventListener("click", xbtn=>{
@@ -202,11 +209,6 @@ o.addEventListener("click", xbtn=>{
   // console.log(game.xoChoice);
   return o
 })
-
-  
-
-  //return document.getElementById(redBoxSelect), console.log(redBoxSelect);
-  
 
 
   boxBtns.forEach(btn =>{
