@@ -49,31 +49,38 @@ class Game{
       boxIsSelected = 'b1', value = 1;
       this.selectionR.innerHTML = markXO.value
       // redSelect.innerHTML = markXO; //changing inner text to display x or o
-      console.log('xx')
       break;
-    case 'b2':
+    case 'b2', 'box2':
       boxIsSelected = 'b2', value = 2;
+      this.selectionR.innerHTML = markXO.value
       break;
-    case 'b3':
+    case 'b3', 'box3':
       boxIsSelected = 'b3', value = 3;
+      this.selectionR.innerHTML = markXO.value
       break;
-    case 'b4':
+    case 'b4', 'box4':
       boxIsSelected = 'b4', value = 4;
+      this.selectionR.innerHTML = markXO.value
       break;
-    case 'b5':
+    case 'b5', 'box5':
       boxIsSelected = 'b5', value = 5;
+      this.selectionR.innerHTML = markXO.value
       break;
-    case 'b6':
+    case 'b6', 'box6':
       boxIsSelected = 'b6', value = 6;
+      this.selectionR.innerHTML = markXO.value
       break;
-    case 'b7':
+    case 'b7', 'box7':
       boxIsSelected = 'b7', value = 7;
+      this.selectionR.innerHTML = markXO.value
       break;
-    case 'b8':
+    case 'b8', 'box8':
       boxIsSelected = 'b8', value = 8;
+      this.selectionR.innerHTML = markXO.value
       break;
-    case 'b9':
+    case 'b9', 'box9':
       boxIsSelected = 'b9', value = 9;
+      this.selectionR.innerHTML = markXO.value
       break;
   
     default:
@@ -205,7 +212,7 @@ o.addEventListener("click", xbtn=>{
         // console.log(btn);
         const redBox = document.getElementById('box' + btn.value)
         game.selected(btn.id, redBox);
-        btn.style.display = 'none';
+        btn.style.opacity = '0';
         game.tileSelect();
         console.log(btn.value)
         // redBoxes(btn.value);
