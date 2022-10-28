@@ -5,6 +5,33 @@ let draw;
 let comp;
 let human;
 
+// let playerOne = [];
+let playerTwo = [];
+//let plyr1Values = [];
+
+
+function plyr2Values(plyrVal) {
+  playerTwo.push(plyrVal);
+}
+
+let pointVal;
+
+function plyrTotal(pointTrack1,callMe){
+   function valuesFor1() {
+   plyr1Values.push(pointVal);
+    callMe(pointTrack1);
+  }
+}
+callMeNow1 = function(result1){
+  for(el1 in result1) {
+    console.log(el1)
+  }
+}
+let playerOne = new Array();
+
+
+
+
 
 class Game{
     constructor(box, redBox, xo){
@@ -35,17 +62,17 @@ class Game{
     }
     
   
-    nextRound(round){ 
-          //round == 1 3 5 7
-          //round == 0 2 4 6
-      this.redSelect = '';
-      this.boxSelect = '';
-      win == false;
-      draw == false;
-      console.log(round)
+    // nextRound(round){ 
+    //       //round == 1 3 5 7
+    //       //round == 0 2 4 6
+    //   this.redSelect = '';
+    //   this.boxSelect = '';
+    //   win == false;
+    //   draw == false;
+    //   console.log(round)
  
       
-    }
+    // }
 
 
   selected(selection, selectionR){
@@ -120,60 +147,83 @@ class Game{
       //renamin 
       let boxValue = this.boxIsSelected;
       let turnValue = this.chooseXO.value;
-      let playerOne = [];
-      let playerTwo = [];
+      
       console.log(round)
       console.log(turnValue, boxValue)
       console.log(round)
 
-    if (turnValue == 'X'){
-    playerOne.push(boxValue)
-      console.log(playerOne[0])
+    if (round == 1&&3&&5&&7&&9){
+      // turnValue == 'X'
+     
+      pointVal = boxValue;
+      //playerOne.push(boxValue)
+      //console.log(playerOne)
+      //console.log(playerOne[round-1])
       console.log("player = human");
-    }
-
-    else if (turnValue == 'O'){
-      
-    playerTwo.push(boxValue)
-    console.log(playerTwo[0])
-    console.log("player = comp");
-    }
-      const championNums = 
-  [
-  [2,5,8],
-  [3,6,9],
-  [1,4,7],
-  [3,5,7],
-  [1,5,9],
-  [4,5,6],
-  [7,8,9],
-  [1,2,3],
-  ]
-for(let rows = 0; rows < championNums.length; rows++){
-    let row = championNums[rows];
-
-  for(row = 0; row < rows.length; row++){
-    for(validOne = 0; validOne < playerOne.length; validOne++){
-    for(validTwo = 0; validTwo < playerTwo.length; validTwo++){
-      if(championNums[rows][row] = playerOne[validOne]){
-        win == win;
-        draw == !draw;
-        gameIsStarted == !gameIsStarted;
-        alert('Player wins!');
+      if(round == 3){
+        plyrTotal(playerOne, callMeNow1);
       }
+     
     
-      if(championNums[rows][row] = playerTwo[validTwo]){
-        win == win;
-        draw == !draw;
-        gameIsStarted == !gameIsStarted;
-        alert('Computer wins!');
-      }
-      }  
     }
+
+    else if (round == 2&&4&&6&&8){
+    // turnValue == 'O'
+    plyr2Values(boxValue);
+    // playerTwo.push(boxValue)
+    // console.log(playerTwo[0])
+    console.log("player = comp");
+    
+    }
+  }
+
+    check(){
+
+    //  let p1 = playerOne;
+   //   let p2 = playerTwo;
+    // plyr1 = this.playerOne;
+    // plyr2 = this.playerTwo;
+
+  //  console.log(p1);
+  //  console.log(p2);
+//       const championNums = 
+//   [
+//   [2,5,8],
+//   [3,6,9],
+//   [1,4,7],
+//   [3,5,7],
+//   [1,5,9],
+//   [4,5,6],
+//   [7,8,9],
+//   [1,2,3],
+//   ]
+// for(let rows = 0; rows < championNums.length; rows++){
+//     let row = championNums[rows];
+
+//   for(row = 0; row < rows.length; row++){
+//     for(validOne = 0; validOne < playerOne.length; validOne++){
+//     for(validTwo = 0; validTwo < playerTwo.length; validTwo++){
+//       if(championNums[rows][row] = playerOne[validOne]){
+//         win == win;
+//         draw == !draw;
+//         gameIsStarted == !gameIsStarted;
+//         alert('Player wins!');
+//       }
+    
+//       if(championNums[rows][row] = playerTwo[validTwo]){
+//         win == win;
+//         draw == !draw;
+//         gameIsStarted == !gameIsStarted;
+//         alert('Computer wins!');
+//       }
+//       }  
+//     }
+//   }
+// }
+//     }
   }
 }
-    }
-  }
+
 
 
 const x = document.getElementById('xButton');
@@ -222,8 +272,8 @@ o.addEventListener("click", xbtn=>{
         game.tileSelect();
         console.log(btn.value)
         // redBoxes(btn.value);
-        
         game.match(btn.id)  // recieving above define player first and change inner html of boxes
+    //   game.check(game.match);
       })
   })
 
