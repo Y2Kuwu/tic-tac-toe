@@ -10,55 +10,41 @@ class Game{
     constructor(box, redBox, xo){
     this.box = box; //what box is selected
     this.redBox = redBox;
+    if (this.xo !== undefined){
     this.xo = xo;
-   //which player
-   // this.stats = stats; //game status
-      let notXO
-    for (round = 0; round < 8; round++){
-    if (xo !== undefined && round == 0){  //make sure to skip this if it's not the first round maybe a global bool
-    round++
-   
-    this.start(xo.value , notXO);  
+    // if (xo !== 'x' || 'o' && round == 1){  //make sure to skip 
+    // round++;
+    this.start(xo);  
     }
-    else if (xo !== undefined && round > 0){
-      round++;
-      this.nextRound()
-    }
-    }
-    }
-  
-  start(chooseXO , noXO){  //run once take similar code for each turn OR x o every other in array?
-    this.boxSelect = ''; //what box is selected //box
-    //this.playerTurn = human; //is the player x or o // human or computer //player
- //   this.stat = gameIsStarted, !win , !draw; //game is started equals true  //stats
-    console.log('start')
-    // if (chooseXO = 'X')
-    // {
-    // return this.noXO = 'O'
+  }
+    // else if (xo !== 'x' || 'o' && round > 0){ // call after 
+    //   this.nextRound(round)
+    // }
+    // }
     
-    // }
-    // if (chooseXO = 'O')
-    // {
-    // return this.noXO.value = 'X'
   
-    // }
-   
+   start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
+    this.chooseXO = chooseXO; //xo choose 
+    this.boxSelect = ''; //what box is selected //box
+    console.log('start')
     this.redSelect = '';
     win == false;
     draw == false;
-    this.chooseXO = chooseXO; //xo choose 
-    // this.noXO = noXO;
-    // console.log(noXO.value)
     console.log(chooseXO.value)
-    // return(chooseXO.value);
+    console.log(round)
     }
+    
   
-    nextRound(){ 
-      console.log('fart')
+    nextRound(round){ 
+          //round == 1 3 5 7
+          //round == 0 2 4 6
       this.redSelect = '';
       this.boxSelect = '';
       win == false;
       draw == false;
+      console.log(round)
+ 
+      
     }
 
 
@@ -74,6 +60,7 @@ class Game{
     }
   
   tileSelect(){
+   
     let boxIsSelected;
     let value;
     let markXO = this.chooseXO;  //variable for xo 
@@ -122,6 +109,7 @@ class Game{
   }
     this.redBoxIsSelected;
     this.boxIsSelected = value;
+    round++;
     console.log(redBoxIsSelected)
     console.log(markXO.value)
     console.log(value)
@@ -134,15 +122,17 @@ class Game{
       let turnValue = this.chooseXO.value;
       let playerOne = [];
       let playerTwo = [];
+      console.log(round)
       console.log(turnValue, boxValue)
+      console.log(round)
 
-    if (turnValue == 'x'){
+    if (turnValue == 'X'){
     playerOne.push(boxValue)
       console.log(playerOne[0])
       console.log("player = human");
     }
 
-    else if (turnValue == 'o'){
+    else if (turnValue == 'O'){
       
     playerTwo.push(boxValue)
     console.log(playerTwo[0])
@@ -176,7 +166,7 @@ for(let rows = 0; rows < championNums.length; rows++){
         win == win;
         draw == !draw;
         gameIsStarted == !gameIsStarted;
-     alert('Computer wins!');
+        alert('Computer wins!');
       }
       }  
     }
@@ -212,13 +202,13 @@ x.addEventListener("click", xbtn=>{
  
   game.start(x);
   // console.log(game.xoChoice);
-  return x
+  return x , round == 1
 })
 o.addEventListener("click", xbtn=>{
   wrap.style.display = 'none';
   game.start(o);
   // console.log(game.xoChoice);
-  return o
+  return o , round == 1
 })
 
 
