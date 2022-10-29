@@ -5,14 +5,14 @@ let draw;
 let comp;
 let human;
 
+
 var roundPoints = {
-  round1: '',
-  round2: '',
-  round3: '',
-  round4: ''
+  round1: [],
+  round2: [],
+  round3: [],
+  round4: []
 }
 
-plyr1 = [];
 
 //let plyr1Values = [];
 
@@ -158,34 +158,27 @@ class Game{
   }
 
 
-    match(round){
+    match(){
       //renamin 
     //   function a(){
     //     for(const p in roundPoints){
     //       console.log(`${p}: ${roundPoints[p]}`)
     //   }
     // }
+    let roundNum = round;
     let keyCount = "round" + round;
-      console.log(round)
+      
       let boxValue = this.boxIsSelected;
       let turnValue = this.chooseXO.value;
-
-    if (round == 1&&2&&4&&5&&6&&7&&8&&9){
-      plyr1.unshift(boxValue);
-      console.log(plyr1);
-      //roundPoints[keyCount] = boxValue
-    }
-    if (round == 3){
-      console.log(plyr1);
-    }
-
-//
-    // if (round == 1&&3&&5&&7&&9){
+    //if statement should be ONLY ONE = more than one will result in further restriction
+    if (roundNum == 1&&3&&5&&7&&9){
       
-    //   roundPoints[keyCount] = boxValue
-    //   console.log(roundPoints);
-    // }
-//
+      console.log(roundNum)
+      roundPoints[keyCount] = boxValue
+    }
+    if (round == 4){
+      console.log(roundPoints)
+    }
    
    
     // if (round == 2&&4&&6&&8){
@@ -247,6 +240,10 @@ class Game{
 // }
 //     }
   }
+}
+
+function add(){
+
 }
 
 
