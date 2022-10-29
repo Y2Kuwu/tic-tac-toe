@@ -5,29 +5,48 @@ let draw;
 let comp;
 let human;
 
-// let playerOne = [];
-let playerTwo = [];
+var roundPoints = {
+  round1: '',
+  round2: '',
+  round3: '',
+  round4: ''
+}
+
+plyr1 = [];
+
 //let plyr1Values = [];
 
 
-function plyr2Values(plyrVal) {
-  playerTwo.push(plyrVal);
-}
 
-let pointVal;
 
-function plyrTotal(pointTrack1,callMe){
-   function valuesFor1() {
-   plyr1Values.push(pointVal);
-    callMe(pointTrack1);
-  }
-}
-callMeNow1 = function(result1){
-  for(el1 in result1) {
-    console.log(el1)
-  }
-}
-let playerOne = new Array();
+// function plyr2Values(plyrVal) {
+//   playerTwo.push(plyrVal);
+// }
+
+// let pointVal;
+
+// function plyrTotal(pointTrack1,callMe){
+//    function valuesFor1() {
+//    plyr1Values.push(pointVal);
+//     callMe(pointTrack1);
+//   }
+// }
+// callMeNow1 = function(result1){
+//   for(el1 in result1) {
+//     console.log(el1)
+//   }
+// }
+// let playerOne = [];
+
+// function plyr1(p1){
+//   for (p1 = 0; p1 < 3; p1++){
+//     playerOne.push(p1);
+//   }
+//   }
+// function all(){
+//   console.log(playerOne[2]);
+// }
+
 
 
 
@@ -39,15 +58,9 @@ class Game{
     this.redBox = redBox;
     if (this.xo !== undefined){
     this.xo = xo;
-    // if (xo !== 'x' || 'o' && round == 1){  //make sure to skip 
-    // round++;
     this.start(xo);  
     }
   }
-    // else if (xo !== 'x' || 'o' && round > 0){ // call after 
-    //   this.nextRound(round)
-    // }
-    // }
     
   
    start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
@@ -136,50 +149,62 @@ class Game{
   }
     this.redBoxIsSelected;
     this.boxIsSelected = value;
+    console.log(round)
     round++;
+    console.log(round)
     console.log(redBoxIsSelected)
     console.log(markXO.value)
-    console.log(value)
+    this.match(round)
   }
 
 
-    match(){
+    match(round){
       //renamin 
+    //   function a(){
+    //     for(const p in roundPoints){
+    //       console.log(`${p}: ${roundPoints[p]}`)
+    //   }
+    // }
+    let keyCount = "round" + round;
+      console.log(round)
       let boxValue = this.boxIsSelected;
       let turnValue = this.chooseXO.value;
+
+    if (round == 1&&2&&4&&5&&6&&7&&8&&9){
+      plyr1.unshift(boxValue);
+      console.log(plyr1);
+      //roundPoints[keyCount] = boxValue
+    }
+    if (round == 3){
+      console.log(plyr1);
+    }
+
+//
+    // if (round == 1&&3&&5&&7&&9){
       
-      console.log(round)
-      console.log(turnValue, boxValue)
-      console.log(round)
+    //   roundPoints[keyCount] = boxValue
+    //   console.log(roundPoints);
+    // }
+//
+   
+   
+    // if (round == 2&&4&&6&&8){
+    //   roundPoints[keyCount] =boxValue
+    //   console.log(roundPoints[keyCount]);
+    // }
+    // if (round >= 6){
+    //   roundPoints[keyCount] = boxValue
+   
+    //   console.log("player = comp");
+    // }
+   
+}
 
-    if (round == 1&&3&&5&&7&&9){
-      // turnValue == 'X'
-     
-      pointVal = boxValue;
-      //playerOne.push(boxValue)
-      //console.log(playerOne)
-      //console.log(playerOne[round-1])
-      console.log("player = human");
-      if(round == 3){
-        plyrTotal(playerOne, callMeNow1);
-      }
-     
     
-    }
-
-    else if (round == 2&&4&&6&&8){
-    // turnValue == 'O'
-    plyr2Values(boxValue);
-    // playerTwo.push(boxValue)
-    // console.log(playerTwo[0])
-    console.log("player = comp");
-    
-    }
-  }
 
     check(){
 
-    //  let p1 = playerOne;
+    //let p1 = roundPoints[round1.value,round3,round5,round7,round9]
    //   let p2 = playerTwo;
     // plyr1 = this.playerOne;
     // plyr2 = this.playerTwo;
@@ -247,6 +272,7 @@ const wrap = document.getElementById('wrapper');
 
 const game = new Game(box);
 
+
 x.addEventListener("click", xbtn=>{  
   wrap.style.display = 'none';
  
@@ -262,6 +288,7 @@ o.addEventListener("click", xbtn=>{
 })
 
 
+
   boxBtns.forEach(btn =>{
     btn.addEventListener('click', ()=>{
       
@@ -271,8 +298,8 @@ o.addEventListener("click", xbtn=>{
         btn.style.opacity = '0';
         game.tileSelect();
         console.log(btn.value)
-        // redBoxes(btn.value);
-        game.match(btn.id)  // recieving above define player first and change inner html of boxes
+        //roundPoints[1].push(btn.value);             //push button value to array
+        //game.match(btn.id)  // recieving above define player first and change inner html of boxes
     //   game.check(game.match);
       })
   })
