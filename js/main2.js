@@ -5,50 +5,12 @@ let draw;
 let comp;
 let human;
 
+player1 = []
 
 var roundPoints = {
-  round1: [],
-  round2: [],
-  round3: [],
-  round4: []
+  player1: [],
+  player2: []
 }
-
-
-//let plyr1Values = [];
-
-
-
-
-// function plyr2Values(plyrVal) {
-//   playerTwo.push(plyrVal);
-// }
-
-// let pointVal;
-
-// function plyrTotal(pointTrack1,callMe){
-//    function valuesFor1() {
-//    plyr1Values.push(pointVal);
-//     callMe(pointTrack1);
-//   }
-// }
-// callMeNow1 = function(result1){
-//   for(el1 in result1) {
-//     console.log(el1)
-//   }
-// }
-// let playerOne = [];
-
-// function plyr1(p1){
-//   for (p1 = 0; p1 < 3; p1++){
-//     playerOne.push(p1);
-//   }
-//   }
-// function all(){
-//   console.log(playerOne[2]);
-// }
-
-
-
 
 
 
@@ -166,32 +128,45 @@ class Game{
     //   }
     // }
     let roundNum = round;
-    let keyCount = "round" + round;
+    //let keyCount = "round" + round;
+      
       
       let boxValue = this.boxIsSelected;
       let turnValue = this.chooseXO.value;
+    //human
     //if statement should be ONLY ONE = more than one will result in further restriction
-    if (roundNum == 1&&3&&5&&7&&9){
+    if (!roundPoints[player1[roundNum]] ){
+      roundPoints[player1[roundNum]] = [];
+      console.log('ff')
+    }
+      //roundPoints['player1'] = boxValue;
+      //console.log(roundNum)
+      // roundPoints[keyCount] = boxValue
+      //roundPoints.player1.push(boxValue)
       
-      console.log(roundNum)
-      roundPoints[keyCount] = boxValue
+    // 
+    // 1&&3&&5&&7&&9
+    if (roundPoints[player1[roundNum]] ){
+    roundPoints[player1[roundNum]].push(boxValue);
+    console.log(roundPoints)
     }
     if (round == 4){
       console.log(roundPoints)
     }
-   
-   
+  }
+
+  
+    // //comp
     // if (round == 2&&4&&6&&8){
-    //   roundPoints[keyCount] =boxValue
-    //   console.log(roundPoints[keyCount]);
+    //   // roundPoints[keyCount] =boxValue
+    //   roundPoints.player2.push(boxValue)
+    // //  console.log(roundPoints[keyCount]);
     // }
     // if (round >= 6){
-    //   roundPoints[keyCount] = boxValue
-   
-    //   console.log("player = comp");
+    //  // roundPoints[keyCount] = boxValue
     // }
    
-}
+
 
     
 
