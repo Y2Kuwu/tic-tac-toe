@@ -2,7 +2,7 @@
 let round = 0; //global acknowledged for first round
 let win; // add this
 let draw; // add this
-let comp; //needed?
+let cpuXO; //needed?
 let human; //needed?
 
 
@@ -18,14 +18,15 @@ class Game{
     constructor(box, redBox, xo){
     this.box = box; //what box //button is selected
     this.redBox = redBox; //what is the corresponding box beneath
-    if (this.xo !== undefined){  //will not call start() if player has not selected X or O
+    if (this.xo !== undefined){  
     this.xo = xo;
     this.start(xo); 
+    
     }
   }
     
    //First called passes x or o value and box selected
-
+   //called once
    start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
     this.chooseXO = chooseXO; //assign players value
     this.boxSelect = ''; //collects box //button information
@@ -49,55 +50,102 @@ class Game{
     this.selectionR = selectionR; //current equals var current
     this.boxSelect = ''; //equals inputted val
     this.redSelect = ''; //equals inputted val
+    round++; 
     console.log(selection, selectionR.id)
     }
   
   //Checks cases of selected // not exactly required but has helped map out
 
   tileSelect(){
-   
+          //add cpuXO and if statement for new innerHTML?
+     //round number is locally increased
     let boxIsSelected; //black box new var
     let redBoxIsSelected; //red box new var
     let value; //value assigned to black box // already assigned in HTML page
     let markXO = this.chooseXO;  //variable for xo 
-    
+    console.log(round)
     //current black box/button , current red box
     switch (this.selection , this.selectionR.id){ 
     case 'b1' , 'box1': //both by id 
       boxIsSelected = 'b1', value = 1; 
+      if (round % 2 !== 0){
       this.selectionR.innerHTML = markXO.value //once black box disappears append red box 
+      }
+      if (round % 2 == 0){
+      this.selectionR.innerHTML = cpuXO
+      }
       break;
     case 'b2', 'box2':
       boxIsSelected = 'b2', value = 2;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+      this.selectionR.innerHTML = markXO.value 
+        }
+      if (round % 2 == 0){
+      this.selectionR.innerHTML = cpuXO
+        }
       break;
     case 'b3', 'box3':
       boxIsSelected = 'b3', value = 3;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+        this.selectionR.innerHTML = markXO.value 
+        }
+        if (round % 2 == 0){
+        this.selectionR.innerHTML = cpuXO
+        }
       break;
     case 'b4', 'box4':
       boxIsSelected = 'b4', value = 4;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+        this.selectionR.innerHTML = markXO.value 
+        }
+        if (round % 2 == 0){
+        this.selectionR.innerHTML = cpuXO
+        }
       break;
     case 'b5', 'box5':
       boxIsSelected = 'b5', value = 5;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+        this.selectionR.innerHTML = markXO.value 
+        }
+        if (round % 2 == 0){
+        this.selectionR.innerHTML = cpuXO
+        }
       break;
     case 'b6', 'box6':
       boxIsSelected = 'b6', value = 6;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+        this.selectionR.innerHTML = markXO.value 
+        }
+        if (round % 2 == 0){
+        this.selectionR.innerHTML = cpuXO
+        }
       break;
     case 'b7', 'box7':
       boxIsSelected = 'b7', value = 7;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+        this.selectionR.innerHTML = markXO.value 
+        }
+        if (round % 2 == 0){
+        this.selectionR.innerHTML = cpuXO
+        }
       break;
     case 'b8', 'box8':
       boxIsSelected = 'b8', value = 8;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+        this.selectionR.innerHTML = markXO.value 
+        }
+        if (round % 2 == 0){
+        this.selectionR.innerHTML = cpuXO
+        }
       break;
     case 'b9', 'box9':
       boxIsSelected = 'b9', value = 9;
-      this.selectionR.innerHTML = markXO.value
+      if (round % 2 !== 0){
+        this.selectionR.innerHTML = markXO.value 
+        }
+        if (round % 2 == 0){
+        this.selectionR.innerHTML = cpuXO
+        }
       break;
   
     default:
@@ -105,9 +153,6 @@ class Game{
   }
     this.redBoxIsSelected;  // new black box var
     this.boxIsSelected = value; //assigned strictly by given value and passed
-    console.log(round)
-    round++; //round number is locally increased
-    console.log(round)
     console.log(redBoxIsSelected)
     console.log(markXO.value)
     this.collect() //calls to collect values and determine player
@@ -132,10 +177,16 @@ class Game{
    if(round % 2 == 0){
     roundPoints["player2"].push(boxValue);
     console.log(roundPoints)
-    
+    this.cpu();
     }
   }
-   
+  
+    cpu(){
+      console.log(cpuXO)
+
+    }
+
+
     check(){
 
     //let p1 = roundPoints[round1.value,round3,round5,round7,round9]
@@ -203,7 +254,8 @@ const game = new Game(box);
 
 x.addEventListener("click", xbtn=>{  
   wrap.style.display = 'none';
- 
+  cpuXO = 'O';
+
   game.start(x);
   // console.log(game.xoChoice);
   return x , round == 1
@@ -211,6 +263,7 @@ x.addEventListener("click", xbtn=>{
 o.addEventListener("click", xbtn=>{
   wrap.style.display = 'none';
   game.start(o);
+  cpuXO = 'X';
   // console.log(game.xoChoice);
   return o , round == 1
 })
