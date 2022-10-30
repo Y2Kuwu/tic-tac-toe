@@ -9,10 +9,12 @@ let human; //needed?
 //even and odd. seperated arrays
 var roundPoints = {
   player1 : [],
-  player2 : []
+  player2 : [],
+  boxId : []
 }
 
-
+//CHECK SCORE AT 5 for plyr1
+//CHECK SCORE AT 6 for plyr2
 
 class Game{
     constructor(box, redBox, xo){
@@ -21,7 +23,6 @@ class Game{
     if (this.xo !== undefined){  
     this.xo = xo;
     this.start(xo); 
-    
     }
   }
     
@@ -42,7 +43,11 @@ class Game{
   //Recieves data on boxes selected selection == black box/button , selectionR = redBox
 
   selected(selection, selectionR){
-    console.log('not start')                            
+    console.log('not start')        
+    round++;  
+    if (round % 2 == 0){
+      this.cpu();
+    }                   
     if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw)   
         //if boxes do not contain data and the status of the game is not win or draw return..
     return
@@ -50,7 +55,7 @@ class Game{
     this.selectionR = selectionR; //current equals var current
     this.boxSelect = ''; //equals inputted val
     this.redSelect = ''; //equals inputted val
-    round++; 
+    
     console.log(selection, selectionR.id)
     }
   
@@ -152,7 +157,8 @@ class Game{
       return;
   }
     this.redBoxIsSelected;  // new black box var
-    this.boxIsSelected = value; //assigned strictly by given value and passed
+    this.value = value; //assigned strictly by given value and passed
+    this.boxIsSelected = boxIsSelected
     console.log(redBoxIsSelected)
     console.log(markXO.value)
     this.collect() //calls to collect values and determine player
@@ -165,26 +171,71 @@ class Game{
    
     //let roundNum = round;  //recieved round number given new variable
     //let keyCount = "round" + round;
-    let boxValue = this.boxIsSelected; //recieved value number given new variable
+    let boxValue = this.value; //recieved value number given new variable
+    let boxIds = this.boxIsSelected
     // let turnValue = this.chooseXO.value;
     console.log(round)
       //console.log(roundNum)
     if(round % 2 !== 0){  //checks for even/odd player 1 goes first (human)
     roundPoints["player1"].push(boxValue); //obj roundpoints has two arrays, pushes current value selected
+    roundPoints["boxId"].push(boxIds) //grabs id for cpu() to ignore
     console.log(roundPoints)
+    console.log(this.boxIsSelected)
     
     }
    if(round % 2 == 0){
     roundPoints["player2"].push(boxValue);
+    roundPoints["boxId"].push(boxIds)
     console.log(roundPoints)
-    this.cpu();
     }
   }
   
     cpu(){
+      //needs to: click or select button or id , be random , not be previously selected
       console.log(cpuXO)
-
+      
+      let remainingLen;
+      remainingLen =  boxBtns.length - roundPoints["boxId"].length;
+      
+      
+      roundPoints["boxId"].forEach(randBtn=>{
+      console.log(randBtn)
+      //boxBtns.forEach(buttonList=>{
+        //console.log(buttonList.id)
+      //  for (let buttonList =0; buttonList<boxBtns.length; buttonList++)
+      //  {
+        if(boxBtns.id !== roundPoints["boxId"]){
+          // console.log(randBtn + "fart")
+        var cpuChoice = Math.floor(Math.random()*remainingLen);
+         //console.log( boxBtns[buttonList].id)
+         console.log(boxBtns[cpuChoice])
+        }
+      })
     }
+         
+      
+    
+     // })
+      //console.log(boxBtns)
+      //const cpuChoice = 
+      //var cpuChoice = Math.floor(Math.random()*btn.length);
+
+        
+      
+    
+    
+      // if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw) 
+
+      // //if boxes do not contain data and the status of the game is not win or draw return..
+      // return
+      // this.selection = selection; //current equals var current
+      // this.selectionR = selectionR; //current equals var current
+      // this.boxSelect = ''; //equals inputted val
+      // this.redSelect = ''; //equals inputted val
+  
+
+
+    
 
 
     check(){
@@ -283,6 +334,15 @@ o.addEventListener("click", xbtn=>{
        
       })
   })
+
+  function cpuGo(){
+    const redBox = document.getElementById('box' + btn.value)
+    game.selected(btn.id, redBox);
+    btn.style.opacity = '0';
+    btn.disabled = true;
+    game.tileSelect();
+    console.log(btn.value)
+  }
 
   // function humanVComp(digi){
 // return digi;
