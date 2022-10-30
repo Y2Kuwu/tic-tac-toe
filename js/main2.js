@@ -1,77 +1,71 @@
 // buttonChoices.disabled == true;
-let round = 0;
-let win;
-let draw;
-let comp;
-let human;
+let round = 0; //global acknowledged for first round
+let win; // add this
+let draw; // add this
+let comp; //needed?
+let human; //needed?
 
-player1 = []
 
+//even and odd. seperated arrays
 var roundPoints = {
-  player1: [],
-  player2: []
+  player1 : [],
+  player2 : []
 }
 
 
 
 class Game{
     constructor(box, redBox, xo){
-    this.box = box; //what box is selected
-    this.redBox = redBox;
-    if (this.xo !== undefined){
+    this.box = box; //what box //button is selected
+    this.redBox = redBox; //what is the corresponding box beneath
+    if (this.xo !== undefined){  //will not call start() if player has not selected X or O
     this.xo = xo;
-    this.start(xo);  
+    this.start(xo); 
     }
   }
     
-  
+   //First called passes x or o value and box selected
+
    start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
-    this.chooseXO = chooseXO; //xo choose 
-    this.boxSelect = ''; //what box is selected //box
+    this.chooseXO = chooseXO; //assign players value
+    this.boxSelect = ''; //collects box //button information
     console.log('start')
-    this.redSelect = '';
-    win == false;
-    draw == false;
+    this.redSelect = ''; //selects hidden box id
+    win == false; 
+    draw == false; 
     console.log(chooseXO.value)
     console.log(round)
     }
-    
-  
-    // nextRound(round){ 
-    //       //round == 1 3 5 7
-    //       //round == 0 2 4 6
-    //   this.redSelect = '';
-    //   this.boxSelect = '';
-    //   win == false;
-    //   draw == false;
-    //   console.log(round)
- 
-      
-    // }
+   
 
+  //Recieves data on boxes selected selection == black box/button , selectionR = redBox
 
   selected(selection, selectionR){
-    console.log('not start')
-      if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw)   
-      return
-    this.selection = selection; 
-    this.selectionR = selectionR;
-    this.boxSelect = '';
-    this.redSelect = '';
+    console.log('not start')                            
+    if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw)   
+        //if boxes do not contain data and the status of the game is not win or draw return..
+    return
+    this.selection = selection; //current equals var current
+    this.selectionR = selectionR; //current equals var current
+    this.boxSelect = ''; //equals inputted val
+    this.redSelect = ''; //equals inputted val
     console.log(selection, selectionR.id)
     }
   
+  //Checks cases of selected // not exactly required but has helped map out
+
   tileSelect(){
    
-    let boxIsSelected;
-    let value;
+    let boxIsSelected; //black box new var
+    let redBoxIsSelected; //red box new var
+    let value; //value assigned to black box // already assigned in HTML page
     let markXO = this.chooseXO;  //variable for xo 
-    let redBoxIsSelected;
-    switch (this.selection , this.selectionR.id){
-    case 'b1' , 'box1':   // may need to change
-      boxIsSelected = 'b1', value = 1;
-      this.selectionR.innerHTML = markXO.value
-      // redSelect.innerHTML = markXO; //changing inner text to display x or o
+    
+    //current black box/button , current red box
+    switch (this.selection , this.selectionR.id){ 
+    case 'b1' , 'box1': //both by id 
+      boxIsSelected = 'b1', value = 1; 
+      this.selectionR.innerHTML = markXO.value //once black box disappears append red box 
       break;
     case 'b2', 'box2':
       boxIsSelected = 'b2', value = 2;
@@ -109,67 +103,39 @@ class Game{
     default:
       return;
   }
-    this.redBoxIsSelected;
-    this.boxIsSelected = value;
+    this.redBoxIsSelected;  // new black box var
+    this.boxIsSelected = value; //assigned strictly by given value and passed
     console.log(round)
-    round++;
+    round++; //round number is locally increased
     console.log(round)
     console.log(redBoxIsSelected)
     console.log(markXO.value)
-    this.match(round)
+    this.collect() //calls to collect values and determine player
   }
 
 
-    match(){
-      //renamin 
-    //   function a(){
-    //     for(const p in roundPoints){
-    //       console.log(`${p}: ${roundPoints[p]}`)
-    //   }
-    // }
-    let roundNum = round;
-    //let keyCount = "round" + round;
-      
-      
-      let boxValue = this.boxIsSelected;
-      let turnValue = this.chooseXO.value;
-    //human
-    //if statement should be ONLY ONE = more than one will result in further restriction
-    if (!roundPoints[player1[roundNum]] ){
-      roundPoints[player1[roundNum]] = [];
-      console.log('ff')
-    }
-      //roundPoints['player1'] = boxValue;
-      //console.log(roundNum)
-      // roundPoints[keyCount] = boxValue
-      //roundPoints.player1.push(boxValue)
-      
-    // 
-    // 1&&3&&5&&7&&9
-    if (roundPoints[player1[roundNum]] ){
-    roundPoints[player1[roundNum]].push(boxValue);
-    console.log(roundPoints)
-    }
-    if (round == 4){
-      console.log(roundPoints)
-    }
-  }
+    //
 
-  
-    // //comp
-    // if (round == 2&&4&&6&&8){
-    //   // roundPoints[keyCount] =boxValue
-    //   roundPoints.player2.push(boxValue)
-    // //  console.log(roundPoints[keyCount]);
-    // }
-    // if (round >= 6){
-    //  // roundPoints[keyCount] = boxValue
-    // }
+    collect(){
    
-
-
+    //let roundNum = round;  //recieved round number given new variable
+    //let keyCount = "round" + round;
+    let boxValue = this.boxIsSelected; //recieved value number given new variable
+    // let turnValue = this.chooseXO.value;
+    console.log(round)
+      //console.log(roundNum)
+    if(round % 2 !== 0){  //checks for even/odd player 1 goes first (human)
+    roundPoints["player1"].push(boxValue); //obj roundpoints has two arrays, pushes current value selected
+    console.log(roundPoints)
     
-
+    }
+   if(round % 2 == 0){
+    roundPoints["player2"].push(boxValue);
+    console.log(roundPoints)
+    
+    }
+  }
+   
     check(){
 
     //let p1 = roundPoints[round1.value,round3,round5,round7,round9]
@@ -217,23 +183,13 @@ class Game{
   }
 }
 
-function add(){
-
-}
-
 
 
 const x = document.getElementById('xButton');
 const o = document.getElementById('oButton');
 //const xoXO = x || o;
 
-//not running//delete
-async function a(val){    //starts as undefined 
-val = x.addEventListener('click');
-val = o.addEventListener('click');
-return val;                  //keep eye on this function, may cause issues later on
-};
-//make boxBtns lock, still receiving values before   disable?
+
 
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);
@@ -268,24 +224,12 @@ o.addEventListener("click", xbtn=>{
         const redBox = document.getElementById('box' + btn.value)
         game.selected(btn.id, redBox);
         btn.style.opacity = '0';
+        btn.disabled = true;
         game.tileSelect();
         console.log(btn.value)
-        //roundPoints[1].push(btn.value);             //push button value to array
-        //game.match(btn.id)  // recieving above define player first and change inner html of boxes
-    //   game.check(game.match);
+       
       })
   })
-
-    
-  // async function clickXO (){
-  //   if (clicked){
-
-
-
-
-
-
-
 
   // function humanVComp(digi){
 // return digi;
