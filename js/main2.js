@@ -1,5 +1,5 @@
 // buttonChoices.disabled == true;
-let round = 0; //globally acknowledged for first round
+let round = 1; //globally acknowledged for first round
 let win; // add this
 let draw; // add this
 let cpuXO; 
@@ -43,22 +43,22 @@ class Game{
   //Recieves data on boxes selected selection == black box/button , selectionR = redBox
   cpuSelected(selection, selectionR){
   
-  if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % 2 !== 0)  
+  if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % 2 == 0)  
   return
     
-    this.selection = selection; //current equals var current
-    this.selectionR = selectionR; //current equals var current
-    this.boxSelect = ''; //equals inputted val
-    this.redSelect = ''; //equals inputted val
+    this.selection = selection; 
+    this.selectionR = selectionR;
+    this.boxSelect = ''; 
+    this.redSelect = ''; 
     console.log(selection, selectionR.id)
     this.cpuTileSelect();
   }
 
   selected(selection, selectionR){            
-    if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw)   
+    if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % !2 == 0)   
         //if boxes do not contain data and the status of the game is not win or draw return..
     return
-    round++;
+    
     this.selection = selection; //current equals var current
     this.selectionR = selectionR; //current equals var current
     this.boxSelect = ''; //equals inputted val
@@ -119,7 +119,7 @@ class Game{
       return;
   }
     this.redBoxIsSelected;  
-    this.value = value; //assigned strictly by given value and passed
+    this.value = value;
     this.boxIsSelected = boxIsSelected
     console.log(redBoxIsSelected)
     console.log(markXO.value)
@@ -127,23 +127,6 @@ class Game{
     this.collect();
   }
 
-  collect(){
-    //let roundNum = round;  //recieved round number given new variable
-    //let keyCount = "round" + round;
-    
-    let boxValue = this.value; //recieved value number given new variable
-    let boxIds = this.boxIsSelected
-    // let turnValue = this.chooseXO.value;
-    console.log(round)
-      //console.log(roundNum)
-   // if(round % 2 !== 0){  //checks for even/odd player 1 goes first (human)
-    roundPoints["player1"].push(boxValue); //obj roundpoints has two arrays, pushes current value selected
-    roundPoints["boxId"].push(boxIds) //grabs id for cpu() to ignore
-    console.log(this.boxIsSelected)
-    
-    console.log(round)
-    this.cpu();
-    }
   
   
     
@@ -197,134 +180,160 @@ default:
 this.redBoxIsSelected;  // new black box var
 this.value = value; //assigned strictly by given value and passed
 this.boxIsSelected = boxIsSelected
+this.check();
 console.log(redBoxIsSelected)
 }
 
+
+collect(){
+  //let roundNum = round;  //recieved round number given new variable
+  //let keyCount = "round" + round;
+  let boxValue = this.value; //recieved value number given new variable
+  let boxIds = this.boxIsSelected
+  // let turnValue = this.chooseXO.value;
+  roundPoints["player1"].push(boxValue); //obj roundpoints has two arrays, pushes current value selected
+  roundPoints["boxId"].push(boxIds) //grabs id for cpu() to ignore
+  console.log(this.boxIsSelected)
+  this.check();
+  console.log(round)
+  round++
+  this.cpu();
+ // this.cpu();
+  }
+
+
+
     
-        //THIS IS ONE AHEAD OF SCHEDULE
+        //NEEDS TO NOT ALLOW VALUE OVERWRITE
     cpu(){
-      
+      console.log(this.boxIsSelected)
       //needs to: click or select button or id , be random , not be previously selected
+      console.log(round)
+      console.log(roundPoints["boxId"]) 
       
       console.log(cpuXO)
-
-      let remainingLen;
-      console.log(roundPoints["boxId"]) //all 
-      remainingLen = boxBtns.length-round //- roundPoints["boxId"].length;  //-1
+      
+      // console.log(totalLen)
+     
+      ///roundPoints["boxId"].length;  //-1
+      //remainingLen = roundPoints["boxId"].length
       //roundPoints["boxId"].forEach(randBtn=>{
-        console.log(boxBtns.length) 
-       //console.log(randBtn)
+      // console.log(remainingLen)
+        // console.log(roundPoints['boxId'])
+        // console.log(roundPoints[cpuChoice])
+       // boxBtns[cpuChoice].value
+        console.log()
+        let v1 = 
+        Object.values(roundPoints['player1']).forEach(function (val1){
+          return val1
+        });
+      
+        let v2 = function(){
+        Object.values(roundPoints['player2']).forEach(function(val2){
+          return val2
+        })
+      }
+       
+        let remainingLen;
+        let totalLen = roundPoints['player1'].length + roundPoints['player2'].length
+        remainingLen = boxBtns.length - totalLen
+        //roundPoints["player2"].pop(boxBtns[cpuChoice].value);
         var cpuChoice = Math.floor(Math.random()*remainingLen);
-       // if(boxBtns.id !== roundPoints["boxId"]){
-        //boxBtns.forEach(cpuButton =>{
+        roundPoints["player2"].push(boxBtns[cpuChoice].value);
+       
         
-        // if(cpuButton !== randBtn){
-        //   console.log(cpuButton)
-        if (boxBtns[cpuChoice] !== roundPoints["boxId"]){
-        console.log(cpuChoice)
-        console.log(boxBtns[cpuChoice])
-        const red = document.getElementById('box' + boxBtns[cpuChoice].value)
-        console.log(red)
-
-        roundPoints["player2"].push(boxBtns[cpuChoice].value); //value
-        roundPoints["boxId"].push(boxBtns[cpuChoice].id)
-        console.log(roundPoints["boxId"])
-        console.log(roundPoints["player2"])
-        boxBtns[cpuChoice].style.opacity = '0';
-        boxBtns[cpuChoice].disabled = true;
-        // this.cpuSelected(boxBtns[cpuChoice].value, boxBtns[cpuChoice].id)
-        this.cpuSelected(boxBtns[cpuChoice].id, red)
-
-        // this.tileSelect(); THINK IT NEEDS TO BE CALLED AROUND HERE still off by one
-       // cpuGo(boxBtns[cpuChoice].id)
+        
+        
+        if (boxBtns[cpuChoice].value == roundPoints['player1']){
+          roundPoints["player2"].pop(boxBtns[cpuChoice].value);
+          roundPoints["player1"].push(boxBtns[cpuChoice].value);
+          console.log(roundPoints["player1"]);
+          console.log(roundPoints["player2"]);
+          this.cpu()
         }
-      //  })
-      
-      
-    }
-     // })
-    //  })
-    
-  
+        if (boxBtns[cpuChoice].value !== roundPoints['player1']){
+         boxBtns[cpuChoice].style.opacity = '0';
+         boxBtns[cpuChoice].disabled = true;
+         const red = document.getElementById('box' + boxBtns[cpuChoice].value)
          
-      
-    
-     // })
-      //console.log(boxBtns)
-      //const cpuChoice = 
-      //var cpuChoice = Math.floor(Math.random()*btn.length);
+         this.cpuSelected(boxBtns[cpuChoice].id, red)
+        // if (roundPoints["player2"] !== roundPoints["player1"]){
+           //roundPoints["boxId"].push(boxBtns[cpuChoice].id);
+        //   if (boxBtns[cpuChoice].value !==  roundPoints["player1"]){
+        // console.log(cpuChoice)
+        // console.log(boxBtns[cpuChoice].id)
+        
+        //  console.log(roundPoints["player1"].forEach)
 
+        // console.log(roundPoints["boxId"])
+        // console.log(roundPoints["player2"])
+        }
         
       
+      }
     
-    
-      // if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw) 
 
-      // //if boxes do not contain data and the status of the game is not win or draw return..
-      // return
-      // this.selection = selection; //current equals var current
-      // this.selectionR = selectionR; //current equals var current
-      // this.boxSelect = ''; //equals inputted val
-      // this.redSelect = ''; //equals inputted val
+
+    
+     
+
+
+
+    check(){
+    
+      roundPoints['player1'].forEach((plyr1)=>{
+      roundPoints['player1'].forEach((plyr2)=>{
+      
+    
+    
+
+    plyr1 = this.playerOne;
+    plyr2 = this.playerTwo;
+
+      const championNums = 
+  [
+  [2,5,8],
+  [3,6,9],
+  [1,4,7],
+  [3,5,7],
+  [1,5,9],
+  [4,5,6],
+  [7,8,9],
+  [1,2,3],
+  ]
+for(let rows = 0; rows < championNums.length; rows++){
+    let row = championNums[rows];
+
+  for(row = 0; row < rows.length; row++){
+    for(validOne = 0; validOne < playerOne.length; validOne++){
+    for(validTwo = 0; validTwo < playerTwo.length; validTwo++){
+      if(championNums[rows][row] = player1){
+        win == win;
+        draw == !draw;
+        alert('Player wins!');
+      }
+    
+      if(championNums[rows][row] = player2){
+        win == win;
+        draw == !draw;
+        alert('Computer wins!');
+      }
+      }  
+    }
+  }
+}
+    })
+ })
+    }
+  }
+
+
   
 
-
-    
-
-
-    //check(){
-
-    //let p1 = roundPoints[round1.value,round3,round5,round7,round9]
-   //   let p2 = playerTwo;
-    // plyr1 = this.playerOne;
-    // plyr2 = this.playerTwo;
-
-  //  console.log(p1);
-  //  console.log(p2);
-//       const championNums = 
-//   [
-//   [2,5,8],
-//   [3,6,9],
-//   [1,4,7],
-//   [3,5,7],
-//   [1,5,9],
-//   [4,5,6],
-//   [7,8,9],
-//   [1,2,3],
-//   ]
-// for(let rows = 0; rows < championNums.length; rows++){
-//     let row = championNums[rows];
-
-//   for(row = 0; row < rows.length; row++){
-//     for(validOne = 0; validOne < playerOne.length; validOne++){
-//     for(validTwo = 0; validTwo < playerTwo.length; validTwo++){
-//       if(championNums[rows][row] = playerOne[validOne]){
-//         win == win;
-//         draw == !draw;
-//         gameIsStarted == !gameIsStarted;
-//         alert('Player wins!');
-//       }
-    
-//       if(championNums[rows][row] = playerTwo[validTwo]){
-//         win == win;
-//         draw == !draw;
-//         gameIsStarted == !gameIsStarted;
-//         alert('Computer wins!');
-//       }
-//       }  
-//     }
-//   }
-// }
-//     }
- // }
-//}
-}
 
 const x = document.getElementById('xButton');
 const o = document.getElementById('oButton');
 //const xoXO = x || o;
-
-
 
 const boxBtns = document.querySelectorAll('.btns');
 const box = document.querySelectorAll(['b']);

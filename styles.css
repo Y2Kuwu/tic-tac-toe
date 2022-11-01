@@ -24,6 +24,10 @@
 }
 #b1:hover{
 background-color: whitesmoke;
+outline-offset: -40px;
+outline-width: 25px;
+outline-style:double;
+outline-color: red;
 }
 #b2{
 
@@ -35,6 +39,10 @@ background-color: whitesmoke;
 }
 #b2:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 #b3{
   width: 190px;
@@ -45,6 +53,10 @@ background-color: whitesmoke;
 }
 #b3:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 #b4{
   width: 190px;
@@ -55,6 +67,10 @@ background-color: whitesmoke;
 }
 #b4:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 #b5{
   width: 190px;
@@ -65,6 +81,10 @@ background-color: whitesmoke;
 }
 #b5:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 #b6{
   width: 190px;
@@ -75,6 +95,10 @@ background-color: whitesmoke;
 }
 #b6:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 #b7{
 
@@ -86,6 +110,10 @@ background-color: whitesmoke;
 }
 #b7:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 #b8{
   width: 190px;
@@ -96,6 +124,10 @@ background-color: whitesmoke;
 }
 #b8:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 #b9{
   width: 190px;
@@ -106,6 +138,10 @@ background-color: whitesmoke;
 }
 #b9:hover{
   background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
   }
 
 
@@ -337,4 +373,7 @@ background-color: whitesmoke;
 }
 #oButton:hover~.bg{
   background-color: whitesmoke;
+}
+body{
+  background-color: rgb(26, 25, 25);
 }
