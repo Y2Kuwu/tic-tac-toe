@@ -10,7 +10,7 @@ let human; //needed?
 var roundPoints = {
   player1 : [],
   player2 : [],
-  boxId : []
+  boxId : [],
 }
 
 //CHECK SCORE AT 5 for plyr1
@@ -31,7 +31,6 @@ class Game{
    start(chooseXO){  //run once take similar code for each turn OR x o every other in array?
     this.chooseXO = chooseXO; //assign players value
     this.boxSelect = ''; //collects box //button information
-    console.log('start')
     this.redSelect = ''; //selects hidden box id
     win == false; 
     draw == false; 
@@ -39,18 +38,16 @@ class Game{
     console.log(round)
     }
    
-
   //Recieves data on boxes selected selection == black box/button , selectionR = redBox
   cpuSelected(selection, selectionR){
   
   if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % 2 == 0)  
   return
-    
     this.selection = selection; 
     this.selectionR = selectionR;
     this.boxSelect = ''; 
     this.redSelect = ''; 
-    console.log(selection, selectionR.id)
+    console.log(selection, selectionR)
     this.cpuTileSelect();
   }
 
@@ -69,8 +66,6 @@ class Game{
   //Checks cases of selected // not exactly required but has helped map out
 
   tileSelect(){
-          //add cpuXO and if statement for new innerHTML?
-     //round number is locally increased
     let boxIsSelected; //black box new var
     let redBoxIsSelected; //red box new var
     let value; //value assigned to black box // already assigned in HTML page
@@ -127,9 +122,6 @@ class Game{
     this.collect();
   }
 
-  
-  
-    
   //last for now
   cpuTileSelect(){
 let boxIsSelected;
@@ -180,21 +172,21 @@ default:
 this.redBoxIsSelected;  // new black box var
 this.value = value; //assigned strictly by given value and passed
 this.boxIsSelected = boxIsSelected
-this.check();
+//this.check();
 console.log(redBoxIsSelected)
 }
 
 
 collect(){
-  //let roundNum = round;  //recieved round number given new variable
   //let keyCount = "round" + round;
-  let boxValue = this.value; //recieved value number given new variable
-  let boxIds = this.boxIsSelected
+  //let boxValue = this.value; //recieved value number given new variable
+  //let boxIds = this.boxIsSelected
   // let turnValue = this.chooseXO.value;
-  roundPoints["player1"].push(boxValue); //obj roundpoints has two arrays, pushes current value selected
-  roundPoints["boxId"].push(boxIds) //grabs id for cpu() to ignore
+  roundPoints["player1"].push(this.value); //obj roundpoints has two arrays, pushes current value selected
+  roundPoints["boxId"].push(this.boxIsSelected) //grabs id for cpu() to ignore
   console.log(this.boxIsSelected)
-  this.check();
+  console.log(this.value)
+  //this.check();
   console.log(round)
   round++
   this.cpu();
@@ -211,52 +203,98 @@ collect(){
       console.log(round)
       console.log(roundPoints["boxId"]) 
       
-      console.log(cpuXO)
-      
-      // console.log(totalLen)
-     
-      ///roundPoints["boxId"].length;  //-1
-      //remainingLen = roundPoints["boxId"].length
-      //roundPoints["boxId"].forEach(randBtn=>{
-      // console.log(remainingLen)
-        // console.log(roundPoints['boxId'])
-        // console.log(roundPoints[cpuChoice])
-       // boxBtns[cpuChoice].value
-        console.log()
-        let v1 = 
-        Object.values(roundPoints['player1']).forEach(function (val1){
-          return val1
-        });
-      
-        let v2 = function(){
-        Object.values(roundPoints['player2']).forEach(function(val2){
-          return val2
-        })
-      }
-       
-        let remainingLen;
-        let totalLen = roundPoints['player1'].length + roundPoints['player2'].length
-        remainingLen = boxBtns.length - totalLen
-        //roundPoints["player2"].pop(boxBtns[cpuChoice].value);
-        var cpuChoice = Math.floor(Math.random()*remainingLen);
-        roundPoints["player2"].push(boxBtns[cpuChoice].value);
-       
-        
-        
-        
-        if (boxBtns[cpuChoice].value == roundPoints['player1']){
-          roundPoints["player2"].pop(boxBtns[cpuChoice].value);
-          roundPoints["player1"].push(boxBtns[cpuChoice].value);
-          console.log(roundPoints["player1"]);
-          console.log(roundPoints["player2"]);
-          this.cpu()
-        }
-        if (boxBtns[cpuChoice].value !== roundPoints['player1']){
-         boxBtns[cpuChoice].style.opacity = '0';
-         boxBtns[cpuChoice].disabled = true;
-         const red = document.getElementById('box' + boxBtns[cpuChoice].value)
+      // console.log(cpuXO)
          
-         this.cpuSelected(boxBtns[cpuChoice].id, red)
+          //console.log(btn)
+          function findCorr(rp){
+            for(let num = 0; num < roundPoints.player2.length; num++)
+            return (rp =(roundPoints.player2[num].id))
+           }
+
+
+          let remainingLen;
+          let totalLen = roundPoints['player1'].length + roundPoints['player2'].length
+          
+          remainingLen = boxBtns.length - totalLen
+          var cpuChoice = Math.floor(Math.random()*remainingLen);
+          console.log(boxBtns[cpuChoice])
+          
+          roundPoints["boxId"].push(boxBtns[cpuChoice].id);
+          roundPoints["player2"].push(boxBtns[cpuChoice]);
+          // roundPoints.boxId2.forEach(function(newVal2){
+         // roundPoints["boxId2"].forEach(ele2 =>{
+         // roundPoints["boxId1"].forEach(ele1 =>{
+
+           findCorr(roundPoints["player2"].id)
+
+          if (roundPoints["player2"] !== roundPoints["player1"]){
+           console.log(roundPoints["boxId2"] , roundPoints["boxId1"])
+           const red = document.getElementById('box' + boxBtns[cpuChoice].value)
+
+           //console.log(boxBtns[cpuChoice].id)
+           console.log(roundPoints["boxId"])
+           
+           console.log(roundPoints["player2"])
+
+           
+
+           console.log(roundPoints["player2"])
+           roundPoints["player2"]
+           console.log(red)
+           console.log(boxBtns[cpuChoice].id)
+           boxBtns[cpuChoice].style.opacity = '0';
+           boxBtns[cpuChoice].disabled = true;
+           this.cpuSelected(roundPoints["boxId2"], red)
+          }
+           else if (roundPoints["boxId2"] == roundPoints["boxId1"]){
+            roundPoints["boxId2"].pop(boxBtns[cpuChoice].id)
+            roundPoints["player2"].pop(boxBtns[cpuChoice]);
+              this.cpu()
+           }
+          
+        
+          
+          // else{
+          //   roundPoints["player2"].pop(boxBtns[cpuChoice].id);
+        
+      
+
+        //  let checkIt = roundPoints.player2.forEach(function(){
+        //   if (boxBtns[cpuChoice].id !== roundPoints['player1']){
+        //     console.log(roundPoints['player1'])
+        //    boxBtns[cpuChoice].style.opacity = '0';
+        //    boxBtns[cpuChoice].disabled = true;
+        //    const red = document.getElementById('box' + boxBtns[cpuChoice].value)
+  
+        //    this.cpuSelected(boxBtns[cpuChoice].id, red)
+          
+        // }
+        // })
+
+        
+      
+       
+        
+      //   console.log(roundPoints["player2"]);
+      //   console.log(roundPoints['player1'])
+      //   console.log(boxBtns[cpuChoice].value)
+      //   // if (boxBtns[cpuChoice].id == roundPoints['player1']){
+      //   //   roundPoints["player2"].pop(boxBtns[cpuChoice].value);
+      //   //   roundPoints["player1"].push(boxBtns[cpuChoice].value);
+      //   //   console.log(roundPoints["player1"]);
+      //   //   console.log(roundPoints["player2"]);
+      //   // }
+
+
+      //   if (boxBtns[cpuChoice].id !== roundPoints['player1']){
+      //     console.log(roundPoints['player1'])
+      //    boxBtns[cpuChoice].style.opacity = '0';
+      //    boxBtns[cpuChoice].disabled = true;
+      //    const red = document.getElementById('box' + boxBtns[cpuChoice].value)
+
+      //    this.cpuSelected(boxBtns[cpuChoice].id, red)
+        
+      // }
         // if (roundPoints["player2"] !== roundPoints["player1"]){
            //roundPoints["boxId"].push(boxBtns[cpuChoice].id);
         //   if (boxBtns[cpuChoice].value !==  roundPoints["player1"]){
@@ -267,10 +305,11 @@ collect(){
 
         // console.log(roundPoints["boxId"])
         // console.log(roundPoints["player2"])
-        }
         
-      
-      }
+        
+       
+    
+    }
     
 
 
