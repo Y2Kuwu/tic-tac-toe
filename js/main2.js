@@ -198,19 +198,9 @@ collect(){
     
         //NEEDS TO NOT ALLOW VALUE OVERWRITE
     cpu(){
-      console.log(this.boxIsSelected)
       //needs to: click or select button or id , be random , not be previously selected
-      console.log(round)
-      console.log(roundPoints["boxId"]) 
       
-      // console.log(cpuXO)
-         
-          //console.log(btn)
-          function findCorr(rp){
-            for(let num = 0; num < roundPoints.player2.length; num++)
-            return (rp =(roundPoints.player2[num].id))
-           }
-
+      let newXO = this.chooseXO;   
 
           let remainingLen;
           let totalLen = roundPoints['player1'].length + roundPoints['player2'].length
@@ -218,104 +208,57 @@ collect(){
           remainingLen = boxBtns.length - totalLen
           var cpuChoice = Math.floor(Math.random()*remainingLen);
           console.log(boxBtns[cpuChoice])
-          
+
+          const redo = function(cpu, rp , boxI, pl2){
+          rp[boxI].push(boxBtns[cpu].id);
+          rp[pl2].push(boxBtns[cpu].value);
+          }
+          // const redo = function(rp2,boxI){
+          //   totalLen +1;
+          // console.log(boxI , boxBtns[cpuChoice].id )
+       
+          // }
           roundPoints["boxId"].push(boxBtns[cpuChoice].id);
-          roundPoints["player2"].push(boxBtns[cpuChoice]);
-          // roundPoints.boxId2.forEach(function(newVal2){
-         // roundPoints["boxId2"].forEach(ele2 =>{
-         // roundPoints["boxId1"].forEach(ele1 =>{
+          roundPoints["player2"].push(boxBtns[cpuChoice].value);
 
-           findCorr(roundPoints["player2"].id)
+          const red = document.getElementById('box' + boxBtns[cpuChoice].value)
 
-          if (roundPoints["player2"] !== roundPoints["player1"]){
-           console.log(roundPoints["boxId2"] , roundPoints["boxId1"])
-           const red = document.getElementById('box' + boxBtns[cpuChoice].value)
-
-           //console.log(boxBtns[cpuChoice].id)
+          const checkSame = function(rp1 , rp2, a1){
+            for(let num1 = 0; num1 < rp1.length; num1++)
+            for(let num2 = 0; num2 < rp2.length; num2++)
+            if(rp1[num1] == rp2[num2]){
+              console.log("here")
+            //popping value but not replacing symbol yet
+            rp2.pop(boxBtns[a1].value);
+            rp1.push(boxBtns[a1].value);
+            //red.id.innerHTML = "";
+            red.id.innerHTML = newXO
+            console.log(roundPoints["player2"])
+            rp2.push(boxBtns[a1].value);
+            }
+            
+           }
+          
+         console.log(roundPoints["player2"])
+         console.log(roundPoints["player1"])
+         console.log(roundPoints["boxId"])
+          // findCorr(roundPoints["player2"].id)
+         // if (roundPoints["player2"] !== roundPoints["player1"]){
+          if (!checkSame(roundPoints["player1"],roundPoints["player2"], cpuChoice)){
            console.log(roundPoints["boxId"])
            
-           console.log(roundPoints["player2"])
-
-           
-
-           console.log(roundPoints["player2"])
-           roundPoints["player2"]
            console.log(red)
            console.log(boxBtns[cpuChoice].id)
            boxBtns[cpuChoice].style.opacity = '0';
            boxBtns[cpuChoice].disabled = true;
-           this.cpuSelected(roundPoints["boxId2"], red)
+           this.cpuSelected(roundPoints["boxId"], red)
           }
-           else if (roundPoints["boxId2"] == roundPoints["boxId1"]){
-            roundPoints["boxId2"].pop(boxBtns[cpuChoice].id)
-            roundPoints["player2"].pop(boxBtns[cpuChoice]);
-              this.cpu()
-           }
-          
-        
-          
-          // else{
-          //   roundPoints["player2"].pop(boxBtns[cpuChoice].id);
-        
-      
-
-        //  let checkIt = roundPoints.player2.forEach(function(){
-        //   if (boxBtns[cpuChoice].id !== roundPoints['player1']){
-        //     console.log(roundPoints['player1'])
-        //    boxBtns[cpuChoice].style.opacity = '0';
-        //    boxBtns[cpuChoice].disabled = true;
-        //    const red = document.getElementById('box' + boxBtns[cpuChoice].value)
-  
-        //    this.cpuSelected(boxBtns[cpuChoice].id, red)
-          
-        // }
-        // })
-
-        
-      
-       
-        
-      //   console.log(roundPoints["player2"]);
-      //   console.log(roundPoints['player1'])
-      //   console.log(boxBtns[cpuChoice].value)
-      //   // if (boxBtns[cpuChoice].id == roundPoints['player1']){
-      //   //   roundPoints["player2"].pop(boxBtns[cpuChoice].value);
-      //   //   roundPoints["player1"].push(boxBtns[cpuChoice].value);
-      //   //   console.log(roundPoints["player1"]);
-      //   //   console.log(roundPoints["player2"]);
-      //   // }
-
-
-      //   if (boxBtns[cpuChoice].id !== roundPoints['player1']){
-      //     console.log(roundPoints['player1'])
-      //    boxBtns[cpuChoice].style.opacity = '0';
-      //    boxBtns[cpuChoice].disabled = true;
-      //    const red = document.getElementById('box' + boxBtns[cpuChoice].value)
-
-      //    this.cpuSelected(boxBtns[cpuChoice].id, red)
-        
-      // }
-        // if (roundPoints["player2"] !== roundPoints["player1"]){
-           //roundPoints["boxId"].push(boxBtns[cpuChoice].id);
-        //   if (boxBtns[cpuChoice].value !==  roundPoints["player1"]){
-        // console.log(cpuChoice)
-        // console.log(boxBtns[cpuChoice].id)
-        
-        //  console.log(roundPoints["player1"].forEach)
-
-        // console.log(roundPoints["boxId"])
-        // console.log(roundPoints["player2"])
-        
-        
-       
-    
+           else {checkSame(roundPoints["player1"],roundPoints["player2"], cpuChoice)}
+            //redo(roundPoints["player2"], roundPoints["boxId"])
+            
+             
+           
     }
-    
-
-
-    
-     
-
 
 
     check(){
