@@ -10,7 +10,7 @@ let human; //needed?
 var roundPoints = {
   player1 : [],
   player2 : [],
-  boxId : [],
+  boxVal : [],
 }
 
 //CHECK SCORE AT 5 for plyr1
@@ -39,17 +39,17 @@ class Game{
     }
    
   //Recieves data on boxes selected selection == black box/button , selectionR = redBox
-  cpuSelected(selection, selectionR){
+  // cpuSelected(selection, selectionR){
   
-  if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % 2 == 0)  
-  return
-    this.selection = selection; 
-    this.selectionR = selectionR;
-    this.boxSelect = ''; 
-    this.redSelect = ''; 
-    console.log(selection, selectionR)
-    this.cpuTileSelect();
-  }
+  // if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % 2 == 0)  
+  // return
+  //   this.selection = selection; 
+  //   this.selectionR = selectionR;
+  //   this.boxSelect = ''; 
+  //   this.redSelect = ''; 
+  //   console.log(selection, selectionR)
+  //   this.cpuTileSelect();
+  // }
 
   selected(selection, selectionR){            
     if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % !2 == 0)   
@@ -113,7 +113,7 @@ class Game{
     default:
       return;
   }
-    this.redBoxIsSelected;  
+    this.redBoxIsSelected = redBoxIsSelected;  
     this.value = value;
     this.boxIsSelected = boxIsSelected
     console.log(redBoxIsSelected)
@@ -122,142 +122,146 @@ class Game{
     this.collect();
   }
 
-  //last for now
-  cpuTileSelect(){
-let boxIsSelected;
-let redBoxIsSelected;
-let value; 
+  //last for now        //remove alread getting values below
+//   cpuTileSelect(){
+// let boxIsSelected;
+// let redBoxIsSelected;
+// let value; 
 
-switch (this.selection , this.selectionR.id){ 
-case 'b1' , 'box1': 
-boxIsSelected = 'b1', value = 1; 
-this.selectionR.innerHTML = cpuXO 
-break;
-case 'b2', 'box2':
-boxIsSelected = 'b2', value = 2;
-this.selectionR.innerHTML = cpuXO
-break;
-case 'b3', 'box3':
-boxIsSelected = 'b3', value = 3;
-this.selectionR.innerHTML = cpuXO
-break;
-case 'b4', 'box4':
-boxIsSelected = 'b4', value = 4;
-this.selectionR.innerHTML = cpuXO
-break;
-case 'b5', 'box5':
-boxIsSelected = 'b5', value = 5;
-this.selectionR.innerHTML = cpuXO 
-break;
-case 'b6', 'box6':
-boxIsSelected = 'b6', value = 6;
-this.selectionR.innerHTML = cpuXO
-break;
-case 'b7', 'box7':
-boxIsSelected = 'b7', value = 7;
-this.selectionR.innerHTML = cpuXO
-break;
-case 'b8', 'box8':
-boxIsSelected = 'b8', value = 8;
-this.selectionR.innerHTML = cpuXO
-break;
-case 'b9', 'box9':
-boxIsSelected = 'b9', value = 9;
-this.selectionR.innerHTML = cpuXO
-break;
+// switch (this.selection , this.selectionR.id){ 
+// case 'b1' , 'box1': 
+// boxIsSelected = 'b1', value = 1; 
+// this.selectionR.innerHTML = cpuXO 
+// break;
+// case 'b2', 'box2':
+// boxIsSelected = 'b2', value = 2;
+// this.selectionR.innerHTML = cpuXO
+// break;
+// case 'b3', 'box3':
+// boxIsSelected = 'b3', value = 3;
+// this.selectionR.innerHTML = cpuXO
+// break;
+// case 'b4', 'box4':
+// boxIsSelected = 'b4', value = 4;
+// this.selectionR.innerHTML = cpuXO
+// break;
+// case 'b5', 'box5':
+// boxIsSelected = 'b5', value = 5;
+// this.selectionR.innerHTML = cpuXO 
+// break;
+// case 'b6', 'box6':
+// boxIsSelected = 'b6', value = 6;
+// this.selectionR.innerHTML = cpuXO
+// break;
+// case 'b7', 'box7':
+// boxIsSelected = 'b7', value = 7;
+// this.selectionR.innerHTML = cpuXO
+// break;
+// case 'b8', 'box8':
+// boxIsSelected = 'b8', value = 8;
+// this.selectionR.innerHTML = cpuXO
+// break;
+// case 'b9', 'box9':
+// boxIsSelected = 'b9', value = 9;
+// this.selectionR.innerHTML = cpuXO
+// break;
 
-default:
-  return;
-}
-this.redBoxIsSelected;  // new black box var
-this.value = value; //assigned strictly by given value and passed
-this.boxIsSelected = boxIsSelected
-//this.check();
-console.log(redBoxIsSelected)
-}
+// default:
+//   return;
+// }
+// this.redBoxIsSelected;  // new black box var
+// this.value = value; //assigned strictly by given value and passed
+// this.boxIsSelected = boxIsSelected
+// //this.check();
+// console.log(redBoxIsSelected)
+// }
 
 
 collect(){
-  //let keyCount = "round" + round;
-  //let boxValue = this.value; //recieved value number given new variable
-  //let boxIds = this.boxIsSelected
-  // let turnValue = this.chooseXO.value;
-  roundPoints["player1"].push(this.value); //obj roundpoints has two arrays, pushes current value selected
-  roundPoints["boxId"].push(this.boxIsSelected) //grabs id for cpu() to ignore
+
+  roundPoints["player1"].push(this.selectionR.id); //obj roundpoints has two arrays, pushes current value selected
+  roundPoints["boxVal"].push(this.value) //grabs id for cpu() to ignore
   console.log(this.boxIsSelected)
   console.log(this.value)
-  //this.check();
   console.log(round)
   round++
   this.cpu();
- // this.cpu();
   }
 
-
-
-    
         //NEEDS TO NOT ALLOW VALUE OVERWRITE
     cpu(){
       //needs to: click or select button or id , be random , not be previously selected
-      
-      let newXO = this.chooseXO;   
-
+      //for(let b =0; b < boxBtns.length; b++){
+      //for(let box =0; box < roundPoints.boxVal.length; box++){
+          let newBoxes = []
+          let boxLen = newBoxes.length+1;
+          do{
+          const allRedBox = document.getElementById('box' + boxLen)
+          newBoxes.push(allRedBox)
+          boxLen++
+          }while (boxLen<10)
+          
+          newBoxes.forEach(tb => console.log(tb))
+          let newXO = cpuXO;   
+          console.log(newXO)
           let remainingLen;
-          let totalLen = roundPoints['player1'].length + roundPoints['player2'].length
+          let totalSubtract = roundPoints['player1'].length + roundPoints['player2'].length //subtract from available
+
+
+          console.log(roundPoints['boxVal'])  //box values
+          console.log(roundPoints['player1']) //box ids
+
+          //console.log(boxBtns[b].id) //iterates through all buttons DONT NEED
+          console.log(roundPoints.boxVal[box]) //iterates through box values
           
-          remainingLen = boxBtns.length - totalLen
-          var cpuChoice = Math.floor(Math.random()*remainingLen);
-          console.log(boxBtns[cpuChoice])
+    
+          //remainingLen = boxBtns.length - totalLen
+         //var cpuChoice = Math.floor(Math.random()*remainingLen);
+          // console.log(boxBtns[cpuChoice])
 
-          const redo = function(cpu, rp , boxI, pl2){
-          rp[boxI].push(boxBtns[cpu].id);
-          rp[pl2].push(boxBtns[cpu].value);
-          }
-          // const redo = function(rp2,boxI){
-          //   totalLen +1;
-          // console.log(boxI , boxBtns[cpuChoice].id )
-       
-          // }
-          roundPoints["boxId"].push(boxBtns[cpuChoice].id);
-          roundPoints["player2"].push(boxBtns[cpuChoice].value);
-
-          const red = document.getElementById('box' + boxBtns[cpuChoice].value)
-
-          const checkSame = function(rp1 , rp2, a1){
-            for(let num1 = 0; num1 < rp1.length; num1++)
-            for(let num2 = 0; num2 < rp2.length; num2++)
-            if(rp1[num1] == rp2[num2]){
-              console.log("here")
-            //popping value but not replacing symbol yet
-            rp2.pop(boxBtns[a1].value);
-            rp1.push(boxBtns[a1].value);
-            //red.id.innerHTML = "";
-            red.id.innerHTML = newXO
-            console.log(roundPoints["player2"])
-            rp2.push(boxBtns[a1].value);
-            }
+        
+          // roundPoints["boxVal"].push(boxBtns[cpuChoice].id);
+          // roundPoints["player2"].push(boxBtns[cpuChoice].value);
+          
+          // const red = document.getElementById('box' + boxBtns[cpuChoice].value)
+          
+    //       const checkSame = function(rp1 , rp2, bid){
+    //         for(let num1 = 0; num1 < rp1.length; num1++)
+    //         for(let num2 = 0; num2 < rp2.length; num2++)
+    //         for(let num3 = 0; num3 < bid.length; num3++)
+    //         if(rp1[num1] == rp2[num2]){
+    //           console.log("here")
+    //         //pops value and stops symbol overwrite
+    //        // red.innerHTML = newXO
+    //         rp2.pop(boxBtns[cpuChoice].value);
+    //         bid.pop(boxBtns[cpuChoice].value);
+    //         //red.id.innerText = newXO
+    //         }
             
-           }
-          
-         console.log(roundPoints["player2"])
-         console.log(roundPoints["player1"])
-         console.log(roundPoints["boxId"])
-          // findCorr(roundPoints["player2"].id)
-         // if (roundPoints["player2"] !== roundPoints["player1"]){
-          if (!checkSame(roundPoints["player1"],roundPoints["player2"], cpuChoice)){
-           console.log(roundPoints["boxId"])
+    //        }
            
-           console.log(red)
-           console.log(boxBtns[cpuChoice].id)
-           boxBtns[cpuChoice].style.opacity = '0';
-           boxBtns[cpuChoice].disabled = true;
-           this.cpuSelected(roundPoints["boxId"], red)
-          }
-           else {checkSame(roundPoints["player1"],roundPoints["player2"], cpuChoice)}
-            //redo(roundPoints["player2"], roundPoints["boxId"])
+    //       if (!checkSame(roundPoints["player1"],roundPoints["player2"], roundPoints["boxId"])){
+    //        console.log(roundPoints["player2"])
+    //         console.log(roundPoints["boxId"])
+    //        console.log(red.id)
+    //        console.log(boxBtns[cpuChoice].id)
+    //        boxBtns[cpuChoice].style.opacity = '0';
+    //        boxBtns[cpuChoice].disabled = true;
+    //        //this.cpuSelected(roundPoints["boxId"], red)
+    //        red.innerHTML = newXO
+    //        console.log(newXO)
+    //       //this.boxIsSelected = 
+
+    //       }
+    //        else if (checkSame(roundPoints["player1"],roundPoints["player2"], roundPoints["boxId"])){
+    //         this.collect()
+    //       }
+          
+    //         //redo(roundPoints["player2"], roundPoints["boxId"])
             
              
            
+    // }
     }
 
 
