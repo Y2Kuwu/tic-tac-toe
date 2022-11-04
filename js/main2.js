@@ -197,17 +197,26 @@ collect(){
       
       
        for (let fin = 1; fin < 10; fin++){
-        console.log(roundPoints['boxIds'])
 
            const allRedBox = document.getElementById('box' + fin)
            newBoxes.push(allRedBox.id)
-           console.log(newBoxes.filter(remove => !roundPoints.boxIds.includes(remove)))
+           fin++
        }
-          
-          
+
+          let availableChoices = newBoxes.filter(remove => !roundPoints.boxIds.includes(remove));   
+          let choiceLen = availableChoices.length - 1
+          console.log(choiceLen)
+          for (let choice = 0 ; choice < choiceLen; choice++)
+          {
+            const cpuChoice = Math.floor(Math.random()*choiceLen);
+            if(availableChoices.includes('box' + cpuChoice)){
+               roundPoints.boxIds.push('box' + cpuChoice)
+               console.log(roundPoints.boxIds)
+             
+            }
+          }
 
           let newXO = cpuXO;   
-          console.log(newXO)
           let remainingLen;
           let totalSubtract = roundPoints['player1'].length + roundPoints['player2'].length //subtract from available
 
