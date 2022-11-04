@@ -11,7 +11,8 @@ var roundPoints = {
   player1 : [],
   player2 : [],
   boxIds : [],
-  boxVal : [],
+  boxVal1 : [],
+  boxVal2 : [],
   btnVal : [],
 }
 
@@ -184,9 +185,9 @@ collect(){
   roundPoints["player1"].push(this.selectionR.id); //obj roundpoints has two arrays, pushes current value selected
   roundPoints["boxIds"].push(this.selectionR.id);
   roundPoints["btnVal"].push(this.boxIsSelected);
-  roundPoints["boxVal"].push(this.value);
+  roundPoints["boxVal1"].push(this.value);
   
-  console.log(roundPoints["boxVal"])
+  console.log(roundPoints["boxVal1"])
   console.log(roundPoints["boxIds"])
   console.log(roundPoints["player1"])
   console.log(roundPoints["btnVal"])
@@ -227,105 +228,40 @@ collect(){
            //for (let choice = 0 ; choice < choiceLen; choice++)
           // {
            // console.log(choice)
-           btnV.style.opacity = '0'
-           boxV.innerHTML = cpuXO;
-          //  if(availableChoices.includes('box' + cpuChoice && availableBtns.includes('b' + cpuChoice))){
-               roundPoints.boxIds.push('box' + cpuChoice)
-              // console.log(roundPoints.boxIds[choice])
-              // choice++
-           // if(availableBtns.includes('b' + cpuChoice )){  
-               roundPoints.btnVal.push('b' + cpuChoice)
+          
+          //if(availableChoices.includes('box' + cpuChoice && availableBtns.includes('b' + cpuChoice))){
+               roundPoints.boxIds.push(boxV.id)  //both off 
+               roundPoints.player2.push(boxV.id);  //both off
+               roundPoints.btnVal.push(btnV.id);
+               roundPoints.boxVal2.push(btnV.value);
+               console.log(roundPoints["boxIds"]) //off by one 
+               console.log(roundPoints.player2)
+               console.log(btnV)
+               console.log(boxV)
+               console.log(roundPoints.boxVal1)
 
+            btnV.style.opacity = '0'
+            boxV.innerHTML = cpuXO;
+            btnV.disabled = true
+           
+               //roundPoints.btnVal.push('b' + cpuChoice)
                console.log(roundPoints.btnVal[choiceLen])
-              // let hide = document.getElementById(roundPoints['btnVal'][cpuChoice]);
-              // console.log(hide)
-              
-               //roundPoints.boxIds[cpuChoice].boxIds.disabled = true;
-            
-         //  }
-        //  }
+               this.check()
         }
       
   
   
-//
-  
-    
-          // let newXO = cpuXO;   
-          // let remainingLen;
-          // let totalSubtract = roundPoints['player1'].length + roundPoints['player2'].length //subtract from available
-
-
-          // console.log(roundPoints['boxVal'])  //box values
-          // console.log(roundPoints['player1']) //box ids
-
-          // //console.log(boxBtns[b].id) //iterates through all buttons DONT NEED
-          // console.log(roundPoints.boxVal[box]) //iterates through box values
-          
-       //
-      
-    
-          //remainingLen = boxBtns.length - totalLen
-         //var cpuChoice = Math.floor(Math.random()*remainingLen);
-          // console.log(boxBtns[cpuChoice])
-
-        
-          // roundPoints["boxVal"].push(boxBtns[cpuChoice].id);
-          // roundPoints["player2"].push(boxBtns[cpuChoice].value);
-          
-          // const red = document.getElementById('box' + boxBtns[cpuChoice].value)
-          
-    //       const checkSame = function(rp1 , rp2, bid){
-    //         for(let num1 = 0; num1 < rp1.length; num1++)
-    //         for(let num2 = 0; num2 < rp2.length; num2++)
-    //         for(let num3 = 0; num3 < bid.length; num3++)
-    //         if(rp1[num1] == rp2[num2]){
-    //           console.log("here")
-    //         //pops value and stops symbol overwrite
-    //        // red.innerHTML = newXO
-    //         rp2.pop(boxBtns[cpuChoice].value);
-    //         bid.pop(boxBtns[cpuChoice].value);
-    //         //red.id.innerText = newXO
-    //         }
-            
-    //        }
-           
-    //       if (!checkSame(roundPoints["player1"],roundPoints["player2"], roundPoints["boxId"])){
-    //        console.log(roundPoints["player2"])
-    //         console.log(roundPoints["boxId"])
-    //        console.log(red.id)
-    //        console.log(boxBtns[cpuChoice].id)
-    //        boxBtns[cpuChoice].style.opacity = '0';
-    //        boxBtns[cpuChoice].disabled = true;
-    //        //this.cpuSelected(roundPoints["boxId"], red)
-    //        red.innerHTML = newXO
-    //        console.log(newXO)
-    //       //this.boxIsSelected = 
-
-    //       }
-    //        else if (checkSame(roundPoints["player1"],roundPoints["player2"], roundPoints["boxId"])){
-    //         this.collect()
-    //       }
-          
-    //         //redo(roundPoints["player2"], roundPoints["boxId"])
-            
-             
-           
-    // }
-
 
 
     check(){
     
-      roundPoints['player1'].forEach((plyr1)=>{
-      roundPoints['player1'].forEach((plyr2)=>{
-      
-    
-    
+    console.log(roundPoints.boxVal1)
+    console.log(roundPoints.boxVal2)
 
-    plyr1 = this.playerOne;
-    plyr2 = this.playerTwo;
+   // plyr1 = this.playerOne;
+   // plyr2 = this.playerTwo;
 
+  
       const championNums = 
   [
   [2,5,8],
@@ -358,10 +294,14 @@ for(let rows = 0; rows < championNums.length; rows++){
     }
   }
 }
-    })
- })
     }
   }
+
+
+
+ 
+    
+  
 
 
   
@@ -412,4 +352,3 @@ o.addEventListener("click", xbtn=>{
        
       })
   })
-
