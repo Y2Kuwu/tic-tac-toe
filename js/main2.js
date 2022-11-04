@@ -223,10 +223,12 @@ collect(){
           console.log(availableBtns)
           const cpuChoice = Math.floor(Math.random()*choiceLen);
           let btnV = (document.getElementById(availableBtns[cpuChoice]))
+          let boxV = (document.getElementById(availableChoices[cpuChoice]))
            //for (let choice = 0 ; choice < choiceLen; choice++)
           // {
            // console.log(choice)
            btnV.style.opacity = '0'
+           boxV.innerHTML = cpuXO;
           //  if(availableChoices.includes('box' + cpuChoice && availableBtns.includes('b' + cpuChoice))){
                roundPoints.boxIds.push('box' + cpuChoice)
               // console.log(roundPoints.boxIds[choice])
