@@ -10,6 +10,7 @@ let human; //needed?
 var roundPoints = {
   player1 : [],
   player2 : [],
+  boxIds : [],
   boxVal : [],
 }
 
@@ -180,28 +181,31 @@ class Game{
 collect(){
 
   roundPoints["player1"].push(this.selectionR.id); //obj roundpoints has two arrays, pushes current value selected
+  roundPoints["boxIds"].push(this.selectionR.id);
   roundPoints["boxVal"].push(this.value) //grabs id for cpu() to ignore
+  
   console.log(this.boxIsSelected)
   console.log(this.value)
-  console.log(round)
   round++
   this.cpu();
   }
 
         //NEEDS TO NOT ALLOW VALUE OVERWRITE
     cpu(){
-      //needs to: click or select button or id , be random , not be previously selected
-      //for(let b =0; b < boxBtns.length; b++){
-      //for(let box =0; box < roundPoints.boxVal.length; box++){
-          let newBoxes = []
-          let boxLen = newBoxes.length+1;
-          do{
-          const allRedBox = document.getElementById('box' + boxLen)
-          newBoxes.push(allRedBox)
-          boxLen++
-          }while (boxLen<10)
+     
+      let newBoxes = []
+      
+      
+       for (let fin = 1; fin < 10; fin++){
+        console.log(roundPoints['boxIds'])
+
+           const allRedBox = document.getElementById('box' + fin)
+           newBoxes.push(allRedBox.id)
+           console.log(newBoxes.filter(remove => !roundPoints.boxIds.includes(remove)))
+       }
           
-          newBoxes.forEach(tb => console.log(tb))
+          
+
           let newXO = cpuXO;   
           console.log(newXO)
           let remainingLen;
@@ -214,6 +218,8 @@ collect(){
           //console.log(boxBtns[b].id) //iterates through all buttons DONT NEED
           console.log(roundPoints.boxVal[box]) //iterates through box values
           
+       }
+      
     
           //remainingLen = boxBtns.length - totalLen
          //var cpuChoice = Math.floor(Math.random()*remainingLen);
@@ -262,7 +268,7 @@ collect(){
              
            
     // }
-    }
+    
 
 
     check(){
