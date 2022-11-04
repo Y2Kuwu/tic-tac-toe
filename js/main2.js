@@ -12,6 +12,7 @@ var roundPoints = {
   player2 : [],
   boxIds : [],
   boxVal : [],
+  btnVal : [],
 }
 
 //CHECK SCORE AT 5 for plyr1
@@ -182,10 +183,13 @@ collect(){
 
   roundPoints["player1"].push(this.selectionR.id); //obj roundpoints has two arrays, pushes current value selected
   roundPoints["boxIds"].push(this.selectionR.id);
-  roundPoints["boxVal"].push(this.value) //grabs id for cpu() to ignore
+  roundPoints["btnVal"].push(this.boxIsSelected);
+  roundPoints["boxVal"].push(this.value);
   
-  console.log(this.boxIsSelected)
-  console.log(this.value)
+  console.log(roundPoints["boxVal"])
+  console.log(roundPoints["boxIds"])
+  console.log(roundPoints["player1"])
+  console.log(roundPoints["btnVal"])
   round++
   this.cpu();
   }
@@ -194,40 +198,69 @@ collect(){
     cpu(){
      
       let newBoxes = []
-      
-      
-       for (let fin = 1; fin < 10; fin++){
+      let newButtons = []
+      let allRedBox;
+      let allBtn;
+      let addOn;
 
-           const allRedBox = document.getElementById('box' + fin)
-           newBoxes.push(allRedBox.id)
-           fin++
+       for (let fin = 0; fin < 9; fin++){
+        addOn = fin + 1
+        allRedBox = document.getElementById('box' + addOn)
+        newBoxes.push(allRedBox.id)
+        allBtn = document.getElementById('b' + addOn)
+        newButtons.push(allBtn.id)
        }
+          console.log(newBoxes)
+          console.log(newButtons)
 
-          let availableChoices = newBoxes.filter(remove => !roundPoints.boxIds.includes(remove));   
-          let choiceLen = availableChoices.length - 1
+          let availableChoices = newBoxes.filter(remove => !roundPoints.boxIds.includes(remove));  
+          let availableBtns = newButtons.filter(remove => !roundPoints.btnVal.includes(remove)); 
+          let choiceLen = availableChoices.length //need two if two for loops
+
+
           console.log(choiceLen)
-          for (let choice = 0 ; choice < choiceLen; choice++)
-          {
-            const cpuChoice = Math.floor(Math.random()*choiceLen);
-            if(availableChoices.includes('box' + cpuChoice)){
+          console.log(availableChoices) // of these you can choose one of choiceLen
+          console.log(availableBtns)
+          const cpuChoice = Math.floor(Math.random()*choiceLen);
+          let btnV = (document.getElementById(availableBtns[cpuChoice]))
+           //for (let choice = 0 ; choice < choiceLen; choice++)
+          // {
+           // console.log(choice)
+           btnV.style.opacity = '0'
+          //  if(availableChoices.includes('box' + cpuChoice && availableBtns.includes('b' + cpuChoice))){
                roundPoints.boxIds.push('box' + cpuChoice)
-               console.log(roundPoints.boxIds)
-             
-            }
-          }
+              // console.log(roundPoints.boxIds[choice])
+              // choice++
+           // if(availableBtns.includes('b' + cpuChoice )){  
+               roundPoints.btnVal.push('b' + cpuChoice)
 
-          let newXO = cpuXO;   
-          let remainingLen;
-          let totalSubtract = roundPoints['player1'].length + roundPoints['player2'].length //subtract from available
+               console.log(roundPoints.btnVal[choiceLen])
+              // let hide = document.getElementById(roundPoints['btnVal'][cpuChoice]);
+              // console.log(hide)
+              
+               //roundPoints.boxIds[cpuChoice].boxIds.disabled = true;
+            
+         //  }
+        //  }
+        }
+      
+  
+  
+//
+  
+    
+          // let newXO = cpuXO;   
+          // let remainingLen;
+          // let totalSubtract = roundPoints['player1'].length + roundPoints['player2'].length //subtract from available
 
 
-          console.log(roundPoints['boxVal'])  //box values
-          console.log(roundPoints['player1']) //box ids
+          // console.log(roundPoints['boxVal'])  //box values
+          // console.log(roundPoints['player1']) //box ids
 
-          //console.log(boxBtns[b].id) //iterates through all buttons DONT NEED
-          console.log(roundPoints.boxVal[box]) //iterates through box values
+          // //console.log(boxBtns[b].id) //iterates through all buttons DONT NEED
+          // console.log(roundPoints.boxVal[box]) //iterates through box values
           
-       }
+       //
       
     
           //remainingLen = boxBtns.length - totalLen
@@ -277,7 +310,7 @@ collect(){
              
            
     // }
-    
+
 
 
     check(){
