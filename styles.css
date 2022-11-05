@@ -1,142 +1,168 @@
 
-#buttons{
+.buttons{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  background-color: gray;
   margin: auto;
-  width: 120px;
-  height: 120px;
-  background-color: black;
-  left: -35px;
-  top: 411px;
+  margin-top: 50px;
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: black;
+
 }
+
 #b1{
   flex-direction: column;
   width: 190px;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
-
-/* #b2{
-  position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: 111px;
-  right: -270px;
-  background-color: black;
-  z-index: 5;
-} */
-
+#b1:hover{
+background-color: whitesmoke;
+outline-offset: -40px;
+outline-width: 25px;
+outline-style:double;
+outline-color: red;
+}
 #b2{
 
   width: 190px;
   height: 190px;
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b2:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 #b3{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b3:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 #b4{
- 
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b4:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 #b5{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b5:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 #b6{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b6:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 #b7{
 
   width: 190px;
   height: 190px;
-
-  
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b7:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 #b8{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b8:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 #b9{
-
   width: 190px;
   height: 190px;
-
   background-color: black;
   z-index: 5;
+  position: relative;
 }
+#b9:hover{
+  background-color: whitesmoke;
+  outline-offset: -40px;
+  outline-width: 25px;
+  outline-style:double;
+  outline-color: red;
+  }
 
 
 
-#xButton
-{
-  position: absolute;
-  font-family: "Libre Barcode 39 Text";
-  font-size: 60px;
-  background-color: black;
-  top: 100px;
-  height: 70px;
-  width: 70px;
-  left: 600px;
-  top: 850px;
-  text-align: center;
-  color: red;
-  z-index: 10;
-}
-#oButton
-{
-  position: absolute;
-  font-family: "Libre Barcode 39 Text";
-  font-size: 60px;
-  background-color: black;
-  top: 100px;
-  height: 70px;
-  width: 70px;
-  left: 680px;
-  top: 850px;
-  text-align: center;
-  color: red;
-  z-index: 10;
-}
 
-#constT
+
+
+
+
+.constT
 {
   font-family: "Libre Barcode 39 Text";
   position: relative;
   background-color: black;
   margin: auto;
-  width: 610px;
-  top: 160px;
+  width: 608px;
+  margin-top: -635px;
   text-align: center;
   color: red;
 }
-#board
+/* #board
 {
   position:relative;
   top: 160px;
@@ -144,116 +170,126 @@
   height: 610px;
   width: 610px;
   background-color: #555;
+} */
+
+.boxes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: -600px;
+  width: 600px;
+  height: 600px;
+  position: relative;
 }
+
 #box1
 {
-  position:relative;
-  top: -240px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  background-color: black;
-  
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
+
+ 
 }
 #box2
 {
-  position:relative;
-  top: -430px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  left: 200px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 #box3
 {
-  position:relative;
-  top: -620px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  right: 200px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 #box4
 {
-  position:relative;
-  top: -610px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 #box5
 {
-  position:relative;
-  top: -800px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  left: 200px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 #box6
 {
-  position:relative;
-  top: -990px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  right: 200px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 #box7
 {
-  position:relative;
-  top: -1580px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 #box8
 {
-  position:relative;
-  top: -1770px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  left: 200px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 #box9
 {
-  position:relative;
-  top: -1960px;
-  margin: auto;
-  height: 190px;
   width: 190px;
-  left: 200px;
-  background-color: black;
+  height: 190px;
+  background-color: red;
+  z-index: 4;
+  font-size: 80px;
+  text-align: center;
 }
 
 #wrapper
 {
-  position: absolute;
-  top: 150px;
-  left: -200px;
-  z-index: 10;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 1100px;
+  z-index: 8;
+  margin-top: -100px;
+
 }
-h3
+.xoQuestion
 {
   position: absolute;
-  
   font-family: "Libre Barcode 39 Text";
   font-size: 60px;
   height: 400px;
   width: 400px;
-  left: 476px;
-  top: 700px;
+  margin-top: 300px;
   text-align: center;
   color: red;
-  z-index: 3;
+  z-index: 7;
   
 }
 .bg
@@ -261,213 +297,83 @@ h3
   position: absolute;
   height: 180px;
   width: 400px;
-  left: 476px;
-  top: 695px;
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: red;
   background-color: rgb(18, 113, 197);
-  z-index: 1;
+
+  z-index: 6;
 }
 .bg2
 {
   position: absolute;
   height: 160px;
   width: 350px;
-  left: 500px;
-  top: 705px;
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: whitesmoke;
+  z-index: 6;
+
   background-color: black;
-  z-index: 2;
+  z-index: 6;
 }
-
-
-
-.boxList
+#xButton
 {
-  position: relative;
-  margin: auto;
-  bottom: 1710px;
-}
-
-#boxS1
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -240px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  background-color: red;
-}
-#boxS2
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -430px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  left: 200px;
-  background-color: red;
-}
-#boxS3
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -620px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  right: 200px;
-  background-color: red;
-}
-#boxS4
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -610px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  background-color: red;
-}
-#boxS5
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -800px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  left: 200px;
-  background-color: red;
-}
-#boxS6
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -990px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  right: 200px;
-  background-color: red;
-}
-#boxS7
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -1580px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  background-color: red;
-}
-#boxS8
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -1770px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  left: 200px;
-  background-color: red;
-}
-#boxS9
-{
-  position:relative;
-  text-align:center;
-  font-size: 180px;
-  top: -1960px;
-  margin: auto;
-  height: 190px;
-  width: 190px;
-  right: 200px;
-  background-color: red;
-  z-index: 3;
-}
-
-
-
-
-
-
-
-/* 
-}
-#b3{
   position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: 111px;
-  right: 130px;
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
   background-color: black;
-  z-index: 5;
+  height: 70px;
+  width: 70px;
+  margin: auto;
+  justify-content: center;
+  color: red;
+  z-index: 9;
+  margin-bottom: -90px;
+  margin-right: 120px;
 }
-#b4{
-  position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: 311px;
-  right: -70px;
-  background-color: black;
-  z-index: 5;
+#xButton:hover{
+  outline-width: 4px;
+  outline-style: solid;
+  color: whitesmoke;
 }
-#b5{
-  position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: 311px;
-  right: -270px;
-  background-color: black;
-  z-index: 5;
+#xButton:hover~.xoQuestion{
+  color: whitesmoke;
 }
-#b6{
-  position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: 311px;
-  right: 130px;
-  background-color: black;
-  z-index: 5;
+#xButton:hover~.bg2{
+  color: whitesmoke;
 }
-#b7{
-  position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: -89px;
-  
-  background-color: black;
-  z-index: 5;
+#xButton:hover~.bg{
+  background-color: whitesmoke;
 }
-#b8{
+#oButton
+{
   position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: -89px;
-  right: -270px;
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
   background-color: black;
-  z-index: 5;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  color: red;
+  z-index: 9;
+  margin-bottom: -90px;
+  margin-left: 120px;
 }
-#b9{
-  position: absolute;
-  margin: auto;
-  width: 190px;
-  height: 190px;
-  top: -89px;
-  right: 130px;
-  background-color: black;
-  z-index: 5;
-} */
+#oButton:hover{
+  outline-width: 4px;
+  outline-style: solid;
+  color: whitesmoke;
+}
+#oButton:hover~.xoQuestion{
+  color: whitesmoke;
+}
+#oButton:hover~.bg2{
+  color: whitesmoke;
+}
+#oButton:hover~.bg{
+  background-color: whitesmoke;
+}
+body{
+  background-color: rgb(26, 25, 25);
+}
