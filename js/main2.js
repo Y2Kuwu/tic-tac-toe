@@ -295,8 +295,6 @@ switch(true){
   default:
     
   return;
-  
-
 }
 }
     }
