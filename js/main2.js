@@ -41,18 +41,7 @@ class Game{
     console.log(round)
     }
    
-  //Recieves data on boxes selected selection == black box/button , selectionR = redBox
-  // cpuSelected(selection, selectionR){
-  
-  // if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % 2 == 0)  
-  // return
-  //   this.selection = selection; 
-  //   this.selectionR = selectionR;
-  //   this.boxSelect = ''; 
-  //   this.redSelect = ''; 
-  //   console.log(selection, selectionR)
-  //   this.cpuTileSelect();
-  // }
+ 
 
   selected(selection, selectionR){            
     if (this.redSelect !== '' && this.boxSelect !== '' && !win && !draw  && round % !2 == 0)   
@@ -125,59 +114,7 @@ class Game{
     this.collect();
   }
 
-  //last for now        //remove alread getting values below
-//   cpuTileSelect(){
-// let boxIsSelected;
-// let redBoxIsSelected;
-// let value; 
 
-// switch (this.selection , this.selectionR.id){ 
-// case 'b1' , 'box1': 
-// boxIsSelected = 'b1', value = 1; 
-// this.selectionR.innerHTML = cpuXO 
-// break;
-// case 'b2', 'box2':
-// boxIsSelected = 'b2', value = 2;
-// this.selectionR.innerHTML = cpuXO
-// break;
-// case 'b3', 'box3':
-// boxIsSelected = 'b3', value = 3;
-// this.selectionR.innerHTML = cpuXO
-// break;
-// case 'b4', 'box4':
-// boxIsSelected = 'b4', value = 4;
-// this.selectionR.innerHTML = cpuXO
-// break;
-// case 'b5', 'box5':
-// boxIsSelected = 'b5', value = 5;
-// this.selectionR.innerHTML = cpuXO 
-// break;
-// case 'b6', 'box6':
-// boxIsSelected = 'b6', value = 6;
-// this.selectionR.innerHTML = cpuXO
-// break;
-// case 'b7', 'box7':
-// boxIsSelected = 'b7', value = 7;
-// this.selectionR.innerHTML = cpuXO
-// break;
-// case 'b8', 'box8':
-// boxIsSelected = 'b8', value = 8;
-// this.selectionR.innerHTML = cpuXO
-// break;
-// case 'b9', 'box9':
-// boxIsSelected = 'b9', value = 9;
-// this.selectionR.innerHTML = cpuXO
-// break;
-
-// default:
-//   return;
-// }
-// this.redBoxIsSelected;  // new black box var
-// this.value = value; //assigned strictly by given value and passed
-// this.boxIsSelected = boxIsSelected
-// //this.check();
-// console.log(redBoxIsSelected)
-// }
 
 
 collect(){
@@ -233,14 +170,16 @@ collect(){
                roundPoints.boxIds.push(boxV.id)  //both off 
                roundPoints.player2.push(boxV.id);  //both off
                roundPoints.btnVal.push(btnV.id);
-               roundPoints.boxVal2.push(btnV.value);
+               roundPoints.boxVal2.push(btnV.value-'');
+               console.log(roundPoints.boxVal2)
+
                console.log(roundPoints["boxIds"]) //off by one 
                console.log(roundPoints.player2)
                console.log(btnV)
                console.log(boxV)
                console.log(roundPoints.boxVal1)
 
-            btnV.style.opacity = '0'
+            btnV.style.opacity = 0
             boxV.innerHTML = cpuXO;
             btnV.disabled = true
            
@@ -254,14 +193,11 @@ collect(){
 
 
     check(){
-    
+    if(round >= 4){
+
     console.log(roundPoints.boxVal1)
     console.log(roundPoints.boxVal2)
 
-   // plyr1 = this.playerOne;
-   // plyr2 = this.playerTwo;
-
-  
       const championNums = 
   {
   w1:[2,5,8],
@@ -273,96 +209,152 @@ collect(){
   w7:[7,8,9],
   w8:[1,2,3],
   }
-
-  
-
-  // function ply1(){
-  //   for (let pl1 =0; pl1 <= roundPoints.boxVal1.length; pl1++){
-  //     return roundPoints['boxVal1'][pl1]
-  //   }
-  // }
-  // const ply1 = roundPoints.boxVal1.forEach((pl1)=>{
-  //   return pl1;
-  // })
-
-  // const ply2 = roundPoints.boxVal2.forEach((pl2)=>{
-  //   return pl2;
-  // })
-
-if(round >= 4){
-  console.log('here')
-  // ply1;
-  // ply2;
- //for(let rows = 0; rows < championNums.length; rows++){
-//     //let row = championNums[rows];
-//     console.log(championNums[rows])
-//     console.log(rows)
-//    // console.log(ply1.value)
-//    for(let row = 0; row < 3; row++){
-//    console.log(championNums[rows][row])
-console.log(championNums.w1.length)
-  function a(){
-  for (let w = 0; w < 9; w++){
-  let winner = championNums['w'+w]
-  console.log(winner)
+  const championNums2 = 
+  {
+  w1:[2,5,8],
+  w2:[3,6,9],
+  w3:[1,4,7],
+  w4:[3,5,7],
+  w5:[1,5,9],
+  w6:[4,5,6],
+  w7:[7,8,9],
+  w8:[1,2,3],
   }
-}
-  
-// let winner = championNums.map(function(idx){
-// idx.w= idx.w.filter(function(boxVals){return boxVals == 4;})
-//   return console.log('win');
-// })
-
-
-// let winner = championNums.filter(w => w.filter(idx=>{
-//   return roundPoints.boxVal1.indexOf(idx) > -1;
-// }))//.length == 2);
-
-    // for(let validOne = 0; validOne < roundPoints.boxVal1; validOne++){
-    //   console.log("here")
-    // for(let validTwo = 0; validTwo < roundPoints.boxVal2; validTwo++){
-    //   console.log("here")
-   // console.log(ply1[row][rows])
-      //console.log(ply1())
-      //if(championNums[rows][row] = roundPoints.boxVal1[validOne]){
-      // if(championNums[rows] == roundPoints.boxVal1[rows]){
-     
-      //   if (winner){
-      //   console.log('here')
-      //   win == win;
-      //   draw == !draw;
-      //   console.log('Player wins!');
-      // }
-     
-      //if(championNums[rows][row] = roundPoints.boxVal2[validTwo]){
-     // if(championNums[rows] == ply2){
-        win == win;
-        draw == !draw;
-        console.log('Computer wins!');
-      }
-      }  
-    }
-//  }
-
-
-
-
-
-
-
-
-
-// switch (){
-//   case 
-
-//   break;
-// }
  
-    
+  
+  //let user
+  //user = roundPoints.boxVal1.sort;
+
+
+  const user = roundPoints.boxVal1;
+  const cpuUser = roundPoints.boxVal2;
+  const w01 = championNums.w1
+  const w02 = championNums.w2
+  const w03 = championNums.w3
+  const w04 = championNums.w4
+  const w05 = championNums.w5
+  const w06 = championNums.w6
+  const w07 = championNums.w7
+  const w08 = championNums.w8
+  
+  //  if(user[l] == w01[ll])
+  // //   console.log('fart')
+  // console.log(w01[ll])
+  // }
+   
+const check1 = (wins, ply1)=>
+wins.every((match1)=>
+ply1.includes(match1));
+
+const check2 = (win, ply2)=>
+win.every((match2)=>
+ply2.includes(match2));
+
+switch(true){
+    //user 1//
+  case check1(w01, user):
+    alert('User Wins!');
+    this.reset();
+  
+  break;
+  case check1(w02, user):
+    alert('User Wins!');
+    this.reset();
+  
+  break;
+  case check1(w03, user):
+    alert('User Wins!');
+    this.reset();
+  
+  break;
+  case check1(w04, user):
+    alert('User Wins!');
+    this.reset();
+  break;
+  case check1(w05, user):
+    alert('User Wins!');
+    this.reset();
+  
+  break;
+  case check1(w06, user):
+    alert('User Wins!');
+    this.reset();
+
+  break;
+  case check1(w07, user):
+    alert('User Wins!');
+    this.reset();
+
+  break;
+  case check1(w08, user):
+    alert('User Wins!');
+    this.reset();
+
+  break;
+  case check2(w01, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+  
+  break;
+  case check2(w02, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+  
+  break;
+  case check2(w03, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+  
+  break;
+  case check2(w04, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+
+  break;
+  case check2(w05, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+  
+  break;
+  case check2(w06, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+
+  break;
+  case check2(w07, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+
+  break;
+  case check2(w08, cpuUser):
+    alert('Terminator Wins!');
+    this.reset();
+  
+  break
+  
+  default:
+  return;
+  
+
+}
+}
+    }
+ reset(){
+     
+  roundPoints.boxIds = []
+  roundPoints.player1 = []
+  roundPoints.player2 = []
+  roundPoints.boxVal1 = []
+  roundPoints.boxVal2 = []
+ }
+
+  }
+  
   
 
 
   
+
 
 
 const x = document.getElementById('xButton');
