@@ -1,14 +1,12 @@
 // buttonChoices.disabled == true;
 let round = 1; //globally acknowledged for first round
-let win; // add this
-let draw; // add this
 let cpuXO; 
-let human; //needed?
+
 
 
 //even and odd. seperated arrays
 var roundPoints = {
-  player1 : [],   //remove two or more
+  player1 : [],  
   player2 : [],
   boxIds : [],
   boxVal1 : [],
@@ -16,8 +14,7 @@ var roundPoints = {
   btnVal : [],
 }
 
-//CHECK SCORE AT 5 for plyr1
-//CHECK SCORE AT 6 for plyr2
+
 
 class Game{
     constructor(box, redBox, xo){
@@ -35,8 +32,6 @@ class Game{
     this.chooseXO = chooseXO; //assign players value
     this.boxSelect = ''; //collects box //button information
     this.redSelect = ''; //selects hidden box id
-    win == false; 
-    draw == false; 
     console.log(chooseXO.value)
     console.log(round)
     }
@@ -108,9 +103,6 @@ class Game{
     this.redBoxIsSelected = redBoxIsSelected;  
     this.value = value;
     this.boxIsSelected = boxIsSelected
-    console.log(redBoxIsSelected)
-    console.log(markXO.value)
-    
     this.collect();
   }
 
@@ -119,7 +111,7 @@ class Game{
 
 collect(){
 
-  roundPoints["player1"].push(this.selectionR.id); //obj roundpoints has two arrays, pushes current value selected
+  roundPoints["player1"].push(this.selectionR.id); 
   roundPoints["boxIds"].push(this.selectionR.id);
   roundPoints["btnVal"].push(this.boxIsSelected);
   roundPoints["boxVal1"].push(this.value);
@@ -129,10 +121,12 @@ collect(){
   console.log(roundPoints["player1"])
   console.log(roundPoints["btnVal"])
   round++
+  this.check();
   this.cpu();
+  
   }
 
-        //NEEDS TO NOT ALLOW VALUE OVERWRITE
+
     cpu(){
      
       let newBoxes = []
@@ -155,36 +149,19 @@ collect(){
           let availableBtns = newButtons.filter(remove => !roundPoints.btnVal.includes(remove)); 
           let choiceLen = availableChoices.length //need two if two for loops
 
-
-          console.log(choiceLen)
-          console.log(availableChoices) // of these you can choose one of choiceLen
-          console.log(availableBtns)
           const cpuChoice = Math.floor(Math.random()*choiceLen);
           let btnV = (document.getElementById(availableBtns[cpuChoice]))
           let boxV = (document.getElementById(availableChoices[cpuChoice]))
-           //for (let choice = 0 ; choice < choiceLen; choice++)
-          // {
-           // console.log(choice)
+         
           
           //if(availableChoices.includes('box' + cpuChoice && availableBtns.includes('b' + cpuChoice))){
                roundPoints.boxIds.push(boxV.id)  //both off 
                roundPoints.player2.push(boxV.id);  //both off
                roundPoints.btnVal.push(btnV.id);
                roundPoints.boxVal2.push(btnV.value-'');
-               console.log(roundPoints.boxVal2)
-
-               console.log(roundPoints["boxIds"]) //off by one 
-               console.log(roundPoints.player2)
-               console.log(btnV)
-               console.log(boxV)
-               console.log(roundPoints.boxVal1)
-
             btnV.style.opacity = 0
             boxV.innerHTML = cpuXO;
             btnV.disabled = true
-           
-               //roundPoints.btnVal.push('b' + cpuChoice)
-               console.log(roundPoints.btnVal[choiceLen])
                this.check()
         }
       
@@ -209,23 +186,7 @@ collect(){
   w7:[7,8,9],
   w8:[1,2,3],
   }
-  const championNums2 = 
-  {
-  w1:[2,5,8],
-  w2:[3,6,9],
-  w3:[1,4,7],
-  w4:[3,5,7],
-  w5:[1,5,9],
-  w6:[4,5,6],
-  w7:[7,8,9],
-  w8:[1,2,3],
-  }
  
-  
-  //let user
-  //user = roundPoints.boxVal1.sort;
-
-
   const user = roundPoints.boxVal1;
   const cpuUser = roundPoints.boxVal2;
   const w01 = championNums.w1
@@ -236,11 +197,6 @@ collect(){
   const w06 = championNums.w6
   const w07 = championNums.w7
   const w08 = championNums.w8
-  
-  //  if(user[l] == w01[ll])
-  // //   console.log('fart')
-  // console.log(w01[ll])
-  // }
    
 const check1 = (wins, ply1)=>
 wins.every((match1)=>
@@ -332,7 +288,12 @@ switch(true){
   
   break
   
+  case roundPoints.boxIds.length == 9:
+    alert('DRAW!')
+  break;
+
   default:
+    
   return;
   
 
