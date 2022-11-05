@@ -8,7 +8,7 @@ let human; //needed?
 
 //even and odd. seperated arrays
 var roundPoints = {
-  player1 : [],
+  player1 : [],   //remove two or more
   player2 : [],
   boxIds : [],
   boxVal1 : [],
@@ -263,42 +263,100 @@ collect(){
 
   
       const championNums = 
-  [
-  [2,5,8],
-  [3,6,9],
-  [1,4,7],
-  [3,5,7],
-  [1,5,9],
-  [4,5,6],
-  [7,8,9],
-  [1,2,3],
-  ]
-for(let rows = 0; rows < championNums.length; rows++){
-    let row = championNums[rows];
+  {
+  w1:[2,5,8],
+  w2:[3,6,9],
+  w3:[1,4,7],
+  w4:[3,5,7],
+  w5:[1,5,9],
+  w6:[4,5,6],
+  w7:[7,8,9],
+  w8:[1,2,3],
+  }
 
-  for(row = 0; row < rows.length; row++){
-    for(validOne = 0; validOne < playerOne.length; validOne++){
-    for(validTwo = 0; validTwo < playerTwo.length; validTwo++){
-      if(championNums[rows][row] = player1){
+  
+
+  // function ply1(){
+  //   for (let pl1 =0; pl1 <= roundPoints.boxVal1.length; pl1++){
+  //     return roundPoints['boxVal1'][pl1]
+  //   }
+  // }
+  // const ply1 = roundPoints.boxVal1.forEach((pl1)=>{
+  //   return pl1;
+  // })
+
+  // const ply2 = roundPoints.boxVal2.forEach((pl2)=>{
+  //   return pl2;
+  // })
+
+if(round >= 4){
+  console.log('here')
+  // ply1;
+  // ply2;
+ //for(let rows = 0; rows < championNums.length; rows++){
+//     //let row = championNums[rows];
+//     console.log(championNums[rows])
+//     console.log(rows)
+//    // console.log(ply1.value)
+//    for(let row = 0; row < 3; row++){
+//    console.log(championNums[rows][row])
+console.log(championNums.w1.length)
+  function a(){
+  for (let w = 0; w < 9; w++){
+  let winner = championNums['w'+w]
+  console.log(winner)
+  }
+}
+  
+// let winner = championNums.map(function(idx){
+// idx.w= idx.w.filter(function(boxVals){return boxVals == 4;})
+//   return console.log('win');
+// })
+
+
+// let winner = championNums.filter(w => w.filter(idx=>{
+//   return roundPoints.boxVal1.indexOf(idx) > -1;
+// }))//.length == 2);
+
+    // for(let validOne = 0; validOne < roundPoints.boxVal1; validOne++){
+    //   console.log("here")
+    // for(let validTwo = 0; validTwo < roundPoints.boxVal2; validTwo++){
+    //   console.log("here")
+   // console.log(ply1[row][rows])
+      //console.log(ply1())
+      //if(championNums[rows][row] = roundPoints.boxVal1[validOne]){
+      // if(championNums[rows] == roundPoints.boxVal1[rows]){
+     
+      //   if (winner){
+      //   console.log('here')
+      //   win == win;
+      //   draw == !draw;
+      //   console.log('Player wins!');
+      // }
+     
+      //if(championNums[rows][row] = roundPoints.boxVal2[validTwo]){
+     // if(championNums[rows] == ply2){
         win == win;
         draw == !draw;
-        alert('Player wins!');
-      }
-    
-      if(championNums[rows][row] = player2){
-        win == win;
-        draw == !draw;
-        alert('Computer wins!');
+        console.log('Computer wins!');
       }
       }  
     }
-  }
-}
-    }
-  }
+//  }
 
 
 
+
+
+
+
+
+
+// switch (){
+//   case 
+
+//   break;
+// }
  
     
   
