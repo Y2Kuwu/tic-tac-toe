@@ -210,81 +210,81 @@ switch(true){
     //user 1//
   case check1(w01, user):
     alert('User Wins!');
-    this.reset();
+ 
   
   break;
   case check1(w02, user):
     alert('User Wins!');
-    this.reset();
+  
   
   break;
   case check1(w03, user):
     alert('User Wins!');
-    this.reset();
+    
   
   break;
   case check1(w04, user):
     alert('User Wins!');
-    this.reset();
+  
   break;
   case check1(w05, user):
     alert('User Wins!');
-    this.reset();
+
   
   break;
   case check1(w06, user):
     alert('User Wins!');
-    this.reset();
+
 
   break;
   case check1(w07, user):
     alert('User Wins!');
-    this.reset();
+  
 
   break;
   case check1(w08, user):
     alert('User Wins!');
-    this.reset();
+  
 
   break;
   case check2(w01, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+    
   
   break;
   case check2(w02, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+    
   
   break;
   case check2(w03, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+    
   
   break;
   case check2(w04, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+    
 
   break;
   case check2(w05, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+    
   
   break;
   case check2(w06, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+    
 
   break;
   case check2(w07, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+   
 
   break;
   case check2(w08, cpuUser):
     alert('Terminator Wins!');
-    this.reset();
+    
   
   break
   
@@ -298,24 +298,21 @@ switch(true){
 }
 }
     }
- reset(){
+//  reset(){
      
-  roundPoints.boxIds = []
-  roundPoints.player1 = []
-  roundPoints.player2 = []
-  roundPoints.boxVal1 = []
-  roundPoints.boxVal2 = []
+
+  // roundPoints.boxIds = []
+  // roundPoints.player1 = []
+  // roundPoints.player2 = []
+  // roundPoints.boxVal1 = []
+  // roundPoints.boxVal2 = []
  }
 
-  }
   
   
-
-
   
-
-
-
+const exitGame = document.getElementById('exit')
+const reloadGame = document.getElementById('rel')
 const x = document.getElementById('xButton');
 const o = document.getElementById('oButton');
 //const xoXO = x || o;
@@ -328,6 +325,14 @@ const wrap = document.getElementById('wrapper');
 
 
 const game = new Game(box);
+
+exitGame.addEventListener("click", exbtn=>{  
+  window.close(); 
+})
+
+reloadGame.addEventListener("click", relbtn=>{  
+  location.reload();
+})
 
 
 x.addEventListener("click", xbtn=>{  
