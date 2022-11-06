@@ -276,7 +276,7 @@ outline-color: red;
   margin: auto;
   height: 1100px;
   z-index: 8;
-  margin-top: -100px;
+  margin-top:-800px;
 
 }
 .xoQuestion
@@ -377,3 +377,55 @@ outline-color: red;
 body{
   background-color: rgb(26, 25, 25);
 }
+
+
+.exrel{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 650px;
+  z-index: 10;
+}
+
+
+#exit
+{
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
+  background-color: black;
+  height: 70px;
+  width: 220px;
+  text-align: center;
+  color: red;
+  outline-offset: 4px;
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: red;
+  z-index: 10;
+}
+#exit:hover{
+  background-color: red;
+  color: white;
+}
+
+#rel
+{
+
+  font-family: "Libre Barcode 39 Text";
+  font-size: 60px;
+  background-color: black;
+  height: 70px;
+  width: 220px;
+  text-align: center;
+  color: red;
+  outline-offset: 4px;
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: red;
+  z-index: 10;
+}
+#rel:hover{
+  background-color: red;
+  color: white;
+}
+
